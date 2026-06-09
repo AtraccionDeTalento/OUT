@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objetivos USIL - Tu Ruta de Resultados</title>
+  <!-- Cache-busting: fuerza al navegador a revalidar el HTML en cada carga -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260603" />
+</head>
+
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- INDICADOR DE AUTO GUARDADO -->
+    <div class="autosave-indicator" id="autosave-indicator">
+      <span class="pulse-dot"></span> Guardado automáticamente
+    </div>
+
+    <div class="main-card">
+
+      <!-- HEADER CORPORATIVO -->
+      <header class="card-header">
+        <div class="header-content">
+          <div class="header-titles">
+            <h1>OBJETIVOS USIL: TU RUTA DE RESULTADOS</h1>
+            <p>Crea metas SMART con IA</p>
+          </div>
+          <div class="header-logo-container"
+            style="display: flex; align-items: center; justify-content: center; height: 72px;">
+            <img src="LOGO_CORPORACIÓN EDUCATIVA USIL-02 (1) 1.png" alt="Logo USIL"
+              style="display: block; width: 200px; height: auto;" />
+          </div>
+        </div>
+      </header>
+
+      <!-- PERFIL DE COLABORADOR LOGUEADO (BARRA DINÁMICA) -->
+      <div class="user-profile-banner hidden" id="user-profile-banner">
+        <div class="profile-info">
+          <div class="profile-avatar">👤</div>
+          <div>
+            <div class="profile-name" id="profile-user-name">-</div>
+            <div class="profile-details" id="profile-user-details">-</div>
+          </div>
+        </div>
+        <div class="profile-badge">Colaborador USIL</div>
+      </div>
+
+      <!-- CONTENIDO DINÁMICO -->
+      <main class="card-body" id="app-body">
+
+        <!-- PANTALLA DE INICIO (HERO) -->
+        <section class="screen" id="screen-hero">
+          <div class="hero-center">
+            <div class="icon-target">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="var(--primary)" stroke-width="3" />
+                <circle cx="20" cy="20" r="10" stroke="var(--primary)" stroke-width="3" />
+                <circle cx="20" cy="20" r="4" fill="var(--primary)" />
+              </svg>
+            </div>
+            <h2>¡Convierte tus metas en acción!</h2>
+            <div
+              style="background: var(--primary-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border); text-align: center;">
+              <p style="color: var(--usil-blue); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.75rem;">Da el primer paso para definir objetivos claros con metodología SMART.</p>
+              <p style="color: var(--text-main); line-height: 1.6;">Este espacio te ayudará a estructurarlos antes de registrarlos en la plataforma TalentoUSIL.</p>
+            </div>
+
+            <div style="width: 100%; max-width: 250px; margin: 0 auto 1.5rem auto; text-align: center;">
+              <label for="inp-login-id" class="input-label" style="margin-top: 0;">Ingresa tu DNI</label>
+              <input type="text" id="inp-login-id" class="custom-input" placeholder="Ingresa tu DNI" autocomplete="off" maxlength="8" inputmode="numeric" pattern="[0-9]*"
+                style="border: 2px solid var(--border); font-weight: 600;">
+              <p id="login-error"
+                style="color: var(--danger); font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem; display: none;">
+                Por favor, ingresa tu DNI para continuar.</p>
+            </div>
+
+            <button class="btn-primary btn-large" id="btn-start">Inicia <svg width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="ml-2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg></button>
+          </div>
+        </section>
+
+        <!-- DASHBOARD (LISTA DE OBJETIVOS) -->
+        <section class="screen hidden" id="screen-dashboard">
+          <div class="dashboard-header">
+            <h2 class="section-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+              </svg>
+              Tus Objetivos 2026
+            </h2>
+            <p class="section-subtitle">Tus respuestas están pregrabadas mientras uses este navegador.</p>
+          </div>
+
+          <div class="objectives-list" id="objectives-list">
+            <!-- Renderizado por JS -->
+          </div>
+
+          <!-- SECCIÓN DE OBJETIVOS HISTÓRICOS 2025 -->
+          <div class="previous-objectives-section hidden" id="previous-objectives-section" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1.5px solid var(--border);">
+            <h3 class="section-title" style="color: var(--text-muted); font-size: 1.125rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.35rem; vertical-align: middle;">
+                <path d="M12 8v4l3 3"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            Tus Objetivos Registrados en 2025
+          </h3>
+          <p class="section-subtitle" style="margin-bottom: 1.25rem; margin-left: 1.8rem; font-size: 0.8125rem; line-height: 1.4;"><strong>Importante:</strong> Los objetivos de 2025 ya pasaron. Úsalos de referencia o haz clic en "Refinar para 2026" para cargarlos en el asistente y <strong>definir tus nuevas metas para este año 2026</strong>.</p>
+          <div class="prev-objectives-list" id="prev-objectives-list" style="display: grid; gap: 0.75rem;">
+            <!-- Renderizado por JS -->
+          </div>
+        </div>
+
+        <div class="mt-6" style="text-align:center;">
+          <button class="btn-primary" id="btn-continue-stack" style="display:none;">Continuar con el siguiente
+            objetivo</button>
+        </div>
+      </section>
+
+      <!-- WIZARD (FORMULARIO CONVERSACIONAL) -->
+      <section class="screen hidden" id="screen-wizard">
+        <div class="wizard-header-nav"
+          style="display: flex; flex-direction: column; align-items: stretch; gap: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button class="btn-ghost" id="btn-back-dash">← Volver atrás</button>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span class="step-badge" id="step-badge"
+                style="display:none; background: var(--primary-light); color: var(--usil-blue); border: 1px solid var(--usil-blue-light); padding: 0.25rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.75rem;">Paso
+                1 / 5</span>
+              <span class="wizard-obj-title" id="wizard-obj-title">Objetivo 1</span>
+            </div>
+          </div>
+
+          <!-- BARRA DE PROGRESO SEGMENTADA MOVIDA AQUI -->
+          <div class="progress-segments" id="progress-segments"
+            style="display:none; margin-top: 0.5rem; margin-bottom: 1rem;">
+            <div class="segment active"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+          </div>
+        </div>
+
+        <!-- PANEL HISTORIAL DE REFERENCIA (EN EL WIZARD) -->
+        <div class="wizard-reference-card hidden" id="wizard-reference-card" style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 12px; padding: 1.25rem 2.5rem 1.25rem 1.25rem; margin-bottom: 1.5rem; text-align: left;">
+          <button class="btn-close-ref" id="btn-close-ref" title="Quitar referencia">×</button>
+          <div style="font-size: 0.75rem; font-weight: 800; color: #92400e; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+            <span>🔄 Refinando Objetivo de 2025</span>
+          </div>
+          <p id="wizard-reference-text" style="font-size: 0.875rem; color: #78350f; line-height: 1.5; font-style: italic;">-</p>
+        </div>
+
+        <div id="wizard-content" class="wizard-content">
+          <!-- Renderizado por JS -->
+        </div>
+
+        <div class="wizard-actions" style="justify-content: space-between; display: flex; align-items: center;">
+          <button class="btn-secondary hidden" id="btn-prev-step">Atrás</button>
+          <button class="btn-primary" id="btn-next-step" style="margin-left: auto;">Siguiente</button>
+        </div>
+      </section>
+
+      <!-- PANTALLA DE RESULTADO -->
+      <section class="screen hidden" id="screen-result">
+        <div class="result-center">
+          <div class="icon-target" style="background: var(--success-light); color: var(--success)">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </div>
+          <h2>¡Tu objetivo ha sido estructurado!</h2>
+          <div style="width: 60px; height: 4px; background: linear-gradient(90deg, var(--usil-blue), #0ea5e9); border-radius: 2px; margin: 0.5rem auto 1rem auto;"></div>
+          <p class="section-subtitle" style="margin-bottom:1rem; font-size: 1rem;">La IA ha construido tu meta en formato SMART corporativo.</p>
+
+          <div class="smart-box" id="smart-result-text" style="font-size:1.15rem; line-height:1.75; padding:1.5rem 2rem; font-weight:600;">
+            <!-- Texto IA -->
+          </div>
+
+          <!-- SMART SCORE PREVIEW -->
+          <div class="smart-score-panel mt-6"
+            style="width:100%; text-align:left; background: var(--surface-hover); padding:1.5rem; border-radius:12px; border:1px solid var(--border);">
+            <h4
+              style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem; text-transform:uppercase; letter-spacing: 0.05em;">
+              Calidad SMART Evaluada</h4>
+            <div id="smart-quality-checks"
+              style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; font-size:0.9375rem; font-weight:600;">
+              <span id="smart-specific-status" style="color:var(--success)">✓ Específico (Acción Clara)</span>
+              <span id="smart-measurable-status" style="color:var(--success)">✓ Medible (Línea Base y Meta)</span>
+              <span id="smart-achievable-status" style="color:var(--text-muted)">Calculando viabilidad...</span>
+              <span id="smart-relevant-status" style="color:var(--success)">✓ Relevante (Asociado a Pilar)</span>
+              <span id="smart-time-status" style="color:var(--success)">✓ Temporal (Enfoque anual 2026)</span>
+            </div>
+          </div>
+
+          <div class="smart-score-panel mt-4"
+            style="width:100%; text-align:left; background: var(--primary-light); padding:1rem; border-radius:12px; border:1px solid var(--usil-blue-light);">
+            <h4
+              style="font-size:0.875rem; color:var(--usil-blue); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing: 0.05em; display:flex; align-items:center; gap:0.5rem;">
+              💡 Sugerencia IA: Tipo de Objetivo</h4>
+            <div id="smart-eval-suggestion" style="font-size:0.9375rem; font-weight:700; color:var(--text-main);">
+              <!-- Tipo eval renderizado por JS -->
+            </div>
+          </div>
+
+          <!-- PANEL NIVEL DE RETO -->
+          <div id="panel-efficacy" class="smart-score-panel mt-4"
+            style="display:none; width:100%; text-align:left; background:#f0fdf4; padding:1rem; border-radius:12px; border:1px solid #86efac;">
+          </div>
+
+          <!-- PANEL CRUCE CON AÑO ANTERIOR -->
+          <div id="panel-crossref" class="hidden mt-4"
+            style="display:none; width:100%; text-align:left; background:#fffbeb; padding:1rem; border-radius:12px; border:1px solid #fcd34d;">
+          </div>
+
+          <!-- AI SUGGESTION PANEL (Gemini powered) -->
+          <div id="ai-suggestion-panel" class="mt-4" style="display:none; width:100%;"></div>
+
+          <div class="wizard-actions justify-center mt-6">
+            <button class="btn-secondary" id="btn-redo">Refinar respuestas</button>
+            <button class="btn-primary" id="btn-accept-result">Guardar y Continuar</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="card-footer">
+      <p>RESULTADOS DIRECTOS · DESEMPEÑO MEDIBLE<br>IMPULSADO CON IA · USIL 2026</p>
+    </footer>
+
+  </div>
+</div>
+
+
+<!-- DETECTOR SCANNER OVERLAY -->
+<div class="scanner-overlay" id="scanner-overlay">
+  <div class="scanner-card">
+    <div class="scanner-line" id="scanner-line"></div>
+    <div class="pulse-scanner-icon" id="scanner-icon">🔍</div>
+    <div class="scanner-status" id="scanner-status">Buscando colaborador en el Maestro USIL...</div>
+    <div class="scanner-details hidden" id="scanner-details" style="margin-top: 1rem;">
+      <div style="background: var(--success-light); color: var(--success); display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; margin-bottom: 1rem; font-weight: 800; font-size: 1.5rem;">✓</div>
+      <h3 id="scanner-detected-name" style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">-</h3>
+      <p id="scanner-detected-puesto" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.25rem;">-</p>
+      <p id="scanner-detected-area" style="font-size: 0.8125rem; font-weight: 700; color: var(--usil-blue); text-transform: uppercase;">-</p>
+    </div>
+  </div>
+</div>
+
+<script src="db_data.js?v=20260603"></script>
+<script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'app.js?v=' + Date.now();
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+
+</html>
