@@ -325,6 +325,61 @@ const bootstrapApp = () => {
     }
   });
 
+  const btnEvalIA = document.getElementById('btn-eval-ia');
+  if (btnEvalIA) {
+    btnEvalIA.addEventListener('click', async () => {
+      let objsText = state.objectives.filter(o => o.finalSmart).map((o, i) => `${i + 1}. ${o.finalSmart}`).join('\n');
+      let promptText = `Actúa como experto en desempeño organizacional y metodología SMART.
+Voy a compartir mis 5 objetivos para evaluación anual (junio – diciembre).
+Evalúa cada uno según estos criterios:
+- ¿Es específico?
+- ¿Es medible?
+- ¿Es alcanzable según mi rol?
+- ¿Es relevante frente a las prioridades del área?
+- ¿Tiene un plazo definido?
+Si hay metas porcentuales, ¿se indica respecto a qué se comparan?
+Si son metas absolutas, ¿son claras y medibles?
+Para cada objetivo:
+- Indica si cumple o no con cada criterio
+- Explica por qué
+- Sugiere una versión mejorada si aplica
+Al final, dime si los 5 están equilibrados o si hay alguno redundante.
+
+MIS OBJETIVOS GENERADOS SON:
+${objsText}`;
+      
+      const modal = document.getElementById('ai-eval-modal');
+      const content = document.getElementById('ai-eval-content');
+      if (modal && content) {
+        modal.classList.remove('hidden');
+        content.innerHTML = `<div style="text-align:center; padding: 3rem 0;">
+          <span style="display:inline-block; width:40px; height:40px; border:4px solid #7c3aed; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite;"></span>
+          <p style="margin-top:1rem; font-weight:700; color:#7c3aed;">La IA está analizando y puliendo tus 5 objetivos...</p>
+        </div>`;
+        
+        try {
+          const res = await callGeminiAI(promptText);
+          if (res) {
+            let formattedHtml = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedHtml = formattedHtml.replace(/\n/g, '<br>');
+            content.innerHTML = formattedHtml;
+          } else {
+            content.innerHTML = `<p style="color:var(--danger); font-weight:bold;">Hubo un error al procesar la solicitud con la IA. Por favor, intenta de nuevo.</p>`;
+          }
+        } catch (e) {
+          content.innerHTML = `<p style="color:var(--danger); font-weight:bold;">Error de conexión: ${e.message}</p>`;
+        }
+      }
+    });
+
+    document.getElementById('btn-close-ai-eval')?.addEventListener('click', () => {
+      document.getElementById('ai-eval-modal')?.classList.add('hidden');
+    });
+    document.getElementById('btn-ai-eval-done')?.addEventListener('click', () => {
+      document.getElementById('ai-eval-modal')?.classList.add('hidden');
+    });
+  }
+
   function renderDashboard() {
     const list = document.getElementById('objectives-list');
     list.innerHTML = '';
@@ -415,12 +470,15 @@ const bootstrapApp = () => {
     }
 
     const btnCont = document.getElementById('btn-continue-stack');
+    const btnEvalIA = document.getElementById('btn-eval-ia');
     if (!allCompleted) {
       btnCont.style.display = 'inline-block';
+      if (btnEvalIA) btnEvalIA.style.display = 'none';
       let nextPending = state.objectives.findIndex(o => o.status === 'pending' || o.status === 'progress');
       btnCont.textContent = `Continuar con Objetivo ${nextPending + 1} →`;
     } else {
       btnCont.style.display = 'none';
+      if (btnEvalIA) btnEvalIA.style.display = 'inline-flex';
     }
   }
 
