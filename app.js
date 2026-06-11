@@ -60,26 +60,26 @@ const bootstrapApp = () => {
 
   // Fallback static list for objectives similarity comparison
   const PREV_OBJ_2025 = [
-    { area: 'Capital Humano', kw: ['rotación','turnover','fuga de talento'], verbo: 'Reducir', texto: 'Reducir rotación de personal de 15% a 12%', meta: 12 },
-    { area: 'Capital Humano', kw: ['capacitación','horas formación','training'], verbo: 'Aumentar', texto: 'Aumentar horas de capacitación por colaborador de 20h a 30h', meta: 30 },
-    { area: 'Capital Humano', kw: ['clima laboral','satisfacción laboral','encuesta clima'], verbo: 'Aumentar', texto: 'Aumentar índice de clima laboral de 72% a 80%', meta: 80 },
-    { area: 'Capital Humano', kw: ['evaluación desempeño','desempeño','performance review'], verbo: 'Implementar', texto: 'Implementar ciclo completo de evaluación de desempeño', meta: null },
-    { area: 'Académico / Escuelas', kw: ['satisfacción estudiantil','nps','encuesta alumnos'], verbo: 'Aumentar', texto: 'Aumentar satisfacción estudiantil de 75% a 82%', meta: 82 },
-    { area: 'Académico / Escuelas', kw: ['deserción','abandono','retiro estudiantil'], verbo: 'Reducir', texto: 'Reducir tasa de deserción académica de 12% a 8%', meta: 8 },
-    { area: 'Académico / Escuelas', kw: ['acreditación','licenciamiento'], verbo: 'Ejecutar', texto: 'Ejecutar proceso de acreditación de 3 programas', meta: 3 },
-    { area: 'Legal', kw: ['denuncia','litigio','demanda','proceso legal'], verbo: 'Mantener', texto: 'Mantener en 0% las denuncias activas', meta: 0, excepcionLegal: true },
-    { area: 'Administración y Finanzas', kw: ['costo operativo','gasto','presupuesto'], verbo: 'Reducir', texto: 'Reducir costos operativos en 10% respecto al año anterior', meta: null },
-    { area: 'Administración y Finanzas', kw: ['cobranza','mora','recaudación'], verbo: 'Aumentar', texto: 'Aumentar tasa de cobranza mensual de 85% a 92%', meta: 92 },
-    { area: 'Comunicaciones y Marketing', kw: ['matrícula','captación','leads','conversión'], verbo: 'Aumentar', texto: 'Aumentar tasa de conversión de leads de 18% a 25%', meta: 25 },
-    { area: 'Comunicaciones y Marketing', kw: ['redes sociales','engagement','seguidores'], verbo: 'Aumentar', texto: 'Aumentar engagement en redes sociales de 3.2% a 5%', meta: 5 },
-    { area: 'Informática / Transformación Digital', kw: ['sistema','plataforma','digitalización','automatización'], verbo: 'Implementar', texto: 'Implementar 2 nuevos módulos en el sistema ERP institucional', meta: 2 },
-    { area: 'Informática / Transformación Digital', kw: ['incidencia','ticket','soporte','tiempo respuesta'], verbo: 'Reducir', texto: 'Reducir tiempo de atención de incidencias de 48h a 24h', meta: 24 },
-    { area: 'Infraestructura y Servicios', kw: ['mantenimiento','instalación','obra'], verbo: 'Ejecutar', texto: 'Ejecutar plan de mantenimiento preventivo al 95% de instalaciones', meta: 95 },
-    { area: 'Bienestar Universitario', kw: ['participación','programa bienestar','actividades'], verbo: 'Aumentar', texto: 'Aumentar participación en programas de bienestar de 45% a 60%', meta: 60 },
-    { area: 'Operaciones', kw: ['proceso','tiempo ciclo','eficiencia operativa'], verbo: 'Optimizar', texto: 'Optimizar tiempo de ciclo de procesos administrativos de 5 días a 3 días', meta: 3 },
-    { area: 'Relaciones Internacionales', kw: ['convenio','acuerdo internacional','movilidad'], verbo: 'Aumentar', texto: 'Aumentar convenios internacionales activos de 12 a 18', meta: 18 },
-    { area: 'Investigación y Doctorado', kw: ['publicación','scopus','artículo científico','investigación'], verbo: 'Aumentar', texto: 'Aumentar publicaciones indexadas de 8 a 15 anuales', meta: 15 },
-    { area: 'Registros Académicos', kw: ['grado','título','trámite','tiempo proceso'], verbo: 'Reducir', texto: 'Reducir tiempo de procesamiento de grados y títulos de 90 a 60 días', meta: 60 },
+    { area: 'Capital Humano', kw: ['rotación', 'turnover', 'fuga de talento'], verbo: 'Reducir', texto: 'Reducir rotación de personal de 15% a 12%', meta: 12 },
+    { area: 'Capital Humano', kw: ['capacitación', 'horas formación', 'training'], verbo: 'Aumentar', texto: 'Aumentar horas de capacitación por colaborador de 20h a 30h', meta: 30 },
+    { area: 'Capital Humano', kw: ['clima laboral', 'satisfacción laboral', 'encuesta clima'], verbo: 'Aumentar', texto: 'Aumentar índice de clima laboral de 72% a 80%', meta: 80 },
+    { area: 'Capital Humano', kw: ['evaluación desempeño', 'desempeño', 'performance review'], verbo: 'Implementar', texto: 'Implementar ciclo completo de evaluación de desempeño', meta: null },
+    { area: 'Académico / Escuelas', kw: ['satisfacción estudiantil', 'nps', 'encuesta alumnos'], verbo: 'Aumentar', texto: 'Aumentar satisfacción estudiantil de 75% a 82%', meta: 82 },
+    { area: 'Académico / Escuelas', kw: ['deserción', 'abandono', 'retiro estudiantil'], verbo: 'Reducir', texto: 'Reducir tasa de deserción académica de 12% a 8%', meta: 8 },
+    { area: 'Académico / Escuelas', kw: ['acreditación', 'licenciamiento'], verbo: 'Ejecutar', texto: 'Ejecutar proceso de acreditación de 3 programas', meta: 3 },
+    { area: 'Legal', kw: ['denuncia', 'litigio', 'demanda', 'proceso legal'], verbo: 'Mantener', texto: 'Mantener en 0% las denuncias activas', meta: 0, excepcionLegal: true },
+    { area: 'Administración y Finanzas', kw: ['costo operativo', 'gasto', 'presupuesto'], verbo: 'Reducir', texto: 'Reducir costos operativos en 10% respecto al año anterior', meta: null },
+    { area: 'Administración y Finanzas', kw: ['cobranza', 'mora', 'recaudación'], verbo: 'Aumentar', texto: 'Aumentar tasa de cobranza mensual de 85% a 92%', meta: 92 },
+    { area: 'Comunicaciones y Marketing', kw: ['matrícula', 'captación', 'leads', 'conversión'], verbo: 'Aumentar', texto: 'Aumentar tasa de conversión de leads de 18% a 25%', meta: 25 },
+    { area: 'Comunicaciones y Marketing', kw: ['redes sociales', 'engagement', 'seguidores'], verbo: 'Aumentar', texto: 'Aumentar engagement en redes sociales de 3.2% a 5%', meta: 5 },
+    { area: 'Informática / Transformación Digital', kw: ['sistema', 'plataforma', 'digitalización', 'automatización'], verbo: 'Implementar', texto: 'Implementar 2 nuevos módulos en el sistema ERP institucional', meta: 2 },
+    { area: 'Informática / Transformación Digital', kw: ['incidencia', 'ticket', 'soporte', 'tiempo respuesta'], verbo: 'Reducir', texto: 'Reducir tiempo de atención de incidencias de 48h a 24h', meta: 24 },
+    { area: 'Infraestructura y Servicios', kw: ['mantenimiento', 'instalación', 'obra'], verbo: 'Ejecutar', texto: 'Ejecutar plan de mantenimiento preventivo al 95% de instalaciones', meta: 95 },
+    { area: 'Bienestar Universitario', kw: ['participación', 'programa bienestar', 'actividades'], verbo: 'Aumentar', texto: 'Aumentar participación en programas de bienestar de 45% a 60%', meta: 60 },
+    { area: 'Operaciones', kw: ['proceso', 'tiempo ciclo', 'eficiencia operativa'], verbo: 'Optimizar', texto: 'Optimizar tiempo de ciclo de procesos administrativos de 5 días a 3 días', meta: 3 },
+    { area: 'Relaciones Internacionales', kw: ['convenio', 'acuerdo internacional', 'movilidad'], verbo: 'Aumentar', texto: 'Aumentar convenios internacionales activos de 12 a 18', meta: 18 },
+    { area: 'Investigación y Doctorado', kw: ['publicación', 'scopus', 'artículo científico', 'investigación'], verbo: 'Aumentar', texto: 'Aumentar publicaciones indexadas de 8 a 15 anuales', meta: 15 },
+    { area: 'Registros Académicos', kw: ['grado', 'título', 'trámite', 'tiempo proceso'], verbo: 'Reducir', texto: 'Reducir tiempo de procesamiento de grados y títulos de 90 a 60 días', meta: 60 },
   ];
 
   let db = {}; // Loaded from db.json
@@ -99,7 +99,9 @@ const bootstrapApp = () => {
       lineaBase: '',
       meta: '',
       tipoEval: '',
+      tipoEvalManual: '',
       queHaras: '',
+      impacto: '',
       finalSmart: '',
       ref2025: ''
     }))
@@ -126,7 +128,7 @@ const bootstrapApp = () => {
 
   let autosaveTimeout;
 
-  const SHEETS_URL = ''; 
+  const SHEETS_URL = '';
 
   async function loadDatabase() {
     if (SHEETS_URL) {
@@ -148,10 +150,10 @@ const bootstrapApp = () => {
             const matricula = cells[4]?.v ? String(cells[4].v).trim() : '';
             const objsStr = cells[5]?.v ? String(cells[5].v).trim() : '';
             if (!dni && !matricula) return;
-            
+
             const objetivos_2025 = objsStr ? objsStr.split(' | ').filter(Boolean) : [];
             const user = { dni, nombre, puesto, area, matricula, objetivos_2025 };
-            
+
             if (dni) db[dni] = user;
             if (matricula) db[matricula] = user;
           });
@@ -188,7 +190,7 @@ const bootstrapApp = () => {
 
   function saveState(showFeedback = false) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    
+
     if (showFeedback) {
       clearTimeout(autosaveTimeout);
       UI.autosaveIndicator.classList.add('visible');
@@ -202,12 +204,12 @@ const bootstrapApp = () => {
     Object.values(screens).forEach(s => s.classList.add('hidden'));
     screens[screenId].classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
     const mainHeader = document.querySelector('.card-header');
     if (mainHeader) {
       mainHeader.style.display = (screenId === 'wizard' || screenId === 'result') ? 'none' : 'block';
     }
-    
+
     UI.progressSegments.style.display = (screenId === 'wizard') ? 'flex' : 'none';
     UI.stepBadge.style.display = (screenId === 'wizard') ? 'inline-block' : 'none';
   }
@@ -241,7 +243,7 @@ const bootstrapApp = () => {
 
     setTimeout(() => {
       scannerLine.style.display = 'none';
-      
+
       if (userRecord) {
         scannerIcon.textContent = "👤";
         scannerStatus.textContent = "¡Colaborador USIL!";
@@ -249,7 +251,7 @@ const bootstrapApp = () => {
         document.getElementById('scanner-detected-puesto').textContent = userRecord.puesto || 'Puesto no especificado';
         document.getElementById('scanner-detected-area').textContent = userRecord.area || 'Área no especificada';
         scannerDetails.classList.remove('hidden');
-        
+
         state.userId = cleanCode;
         state.collabInfo = userRecord;
         state.area = userRecord.area || '';
@@ -260,7 +262,7 @@ const bootstrapApp = () => {
         document.getElementById('scanner-detected-puesto').textContent = "Perfil general de planificación";
         document.getElementById('scanner-detected-area').textContent = "Área General";
         scannerDetails.classList.remove('hidden');
-        
+
         state.userId = cleanCode;
         state.collabInfo = {
           nombre: "Colaborador Libre",
@@ -270,7 +272,7 @@ const bootstrapApp = () => {
         };
         state.area = '';
       }
-      
+
       const banner = document.getElementById('user-profile-banner');
       const nameEl = document.getElementById('profile-user-name');
       const detailsEl = document.getElementById('profile-user-details');
@@ -280,7 +282,7 @@ const bootstrapApp = () => {
 
       setTimeout(() => {
         overlay.classList.remove('active');
-        
+
         state.currentObjIndex = 0;
         state.wizardStep = 1;
         saveState(true);
@@ -297,23 +299,23 @@ const bootstrapApp = () => {
   });
 
   document.getElementById('btn-continue-stack').addEventListener('click', () => {
-     let nextPending = state.objectives.findIndex(o => o.status === 'pending' || o.status === 'progress');
-     if (nextPending !== -1) {
-       state.currentObjIndex = nextPending;
-       state.wizardStep = 1;
-       state.objectives[nextPending].status = 'progress';
-       
-       const refCard = document.getElementById('wizard-reference-card');
-       if (state.objectives[nextPending].ref2025) {
-         document.getElementById('wizard-reference-text').textContent = state.objectives[nextPending].ref2025;
-         refCard.classList.remove('hidden');
-       } else {
-         refCard.classList.add('hidden');
-       }
+    let nextPending = state.objectives.findIndex(o => o.status === 'pending' || o.status === 'progress');
+    if (nextPending !== -1) {
+      state.currentObjIndex = nextPending;
+      state.wizardStep = 1;
+      state.objectives[nextPending].status = 'progress';
 
-       saveState(true);
-       startWizard();
-     }
+      const refCard = document.getElementById('wizard-reference-card');
+      if (state.objectives[nextPending].ref2025) {
+        document.getElementById('wizard-reference-text').textContent = state.objectives[nextPending].ref2025;
+        refCard.classList.remove('hidden');
+      } else {
+        refCard.classList.add('hidden');
+      }
+
+      saveState(true);
+      startWizard();
+    }
   });
 
   document.getElementById('btn-close-ref').addEventListener('click', () => {
@@ -347,7 +349,7 @@ Al final, dime si los 5 están equilibrados o si hay alguno redundante.
 
 MIS OBJETIVOS GENERADOS SON:
 ${objsText}`;
-      
+
       const modal = document.getElementById('ai-eval-modal');
       const content = document.getElementById('ai-eval-content');
       if (modal && content) {
@@ -356,7 +358,7 @@ ${objsText}`;
           <span style="display:inline-block; width:40px; height:40px; border:4px solid #7c3aed; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite;"></span>
           <p style="margin-top:1rem; font-weight:700; color:#7c3aed;">La IA está analizando y puliendo tus 5 objetivos...</p>
         </div>`;
-        
+
         try {
           const res = await callGeminiAI(promptText);
           if (res) {
@@ -384,16 +386,16 @@ ${objsText}`;
     const list = document.getElementById('objectives-list');
     list.innerHTML = '';
     let allCompleted = true;
-    
+
     state.objectives.forEach((obj, idx) => {
       if (obj.status !== 'completed') allCompleted = false;
 
       const div = document.createElement('div');
       div.className = 'obj-card';
-      
+
       let statusClass = 'status-pending';
       let statusText = 'Pendiente';
-      
+
       if (obj.status === 'completed') { statusClass = 'status-completed'; statusText = 'Completado'; }
       else if (obj.status === 'progress') { statusClass = 'status-progress'; statusText = 'En progreso'; }
 
@@ -414,12 +416,12 @@ ${objsText}`;
 
       div.addEventListener('click', () => {
         state.currentObjIndex = idx;
-        if(obj.status === 'completed') {
+        if (obj.status === 'completed') {
           showResultScreen();
         } else {
           obj.status = 'progress';
           state.wizardStep = 1;
-          
+
           const refCard = document.getElementById('wizard-reference-card');
           if (obj.ref2025) {
             document.getElementById('wizard-reference-text').textContent = obj.ref2025;
@@ -438,7 +440,7 @@ ${objsText}`;
 
     const prevSection = document.getElementById('previous-objectives-section');
     const prevList = document.getElementById('prev-objectives-list');
-    
+
     if (state.collabInfo && state.collabInfo.objetivos_2025 && state.collabInfo.objetivos_2025.length > 0) {
       prevSection.classList.remove('hidden');
       prevList.innerHTML = '';
@@ -457,12 +459,12 @@ ${objsText}`;
             </button>
           </div>
         `;
-        
+
         div.querySelector('.btn-refine-prev').addEventListener('click', (e) => {
           e.stopPropagation();
           refineObjective2025(objText);
         });
-        
+
         prevList.appendChild(div);
       });
     } else {
@@ -478,25 +480,33 @@ ${objsText}`;
       btnCont.textContent = `Continuar con Objetivo ${nextPending + 1} →`;
     } else {
       btnCont.style.display = 'none';
-      if (btnEvalIA) btnEvalIA.style.display = 'inline-flex';
+      if (btnEvalIA) {
+        btnEvalIA.style.display = 'inline-flex';
+        // Auto-ejecutar la evaluación IA al completar todos los objetivos
+        if (!state.aiEvalDone) {
+          state.aiEvalDone = true;
+          saveState(false);
+          setTimeout(() => btnEvalIA.click(), 500);
+        }
+      }
     }
   }
 
   function refineObjective2025(objText) {
     const parsed = parsePreviousObjective(objText);
-    
+
     let nextPending = state.objectives.findIndex(o => o.status === 'pending' || o.status === 'progress');
     if (nextPending === -1) {
       nextPending = 0;
     }
-    
+
     state.currentObjIndex = nextPending;
     state.wizardStep = 1;
     state.objectives[nextPending] = {
       status: 'progress',
       action: parsed.action,
       enfoque: parsed.enfoque,
-      pilares: [], 
+      pilares: [],
       metrica: '',
       lineaBase: parsed.lineaBase,
       meta: parsed.meta,
@@ -505,21 +515,21 @@ ${objsText}`;
       finalSmart: '',
       ref2025: objText
     };
-    
+
     saveState(true);
-    
+
     const refCard = document.getElementById('wizard-reference-card');
     const refTextEl = document.getElementById('wizard-reference-text');
     refTextEl.textContent = objText;
     refCard.classList.remove('hidden');
-    
+
     startWizard();
   }
 
   function parsePreviousObjective(text) {
     const cleanText = text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
     let action = 'Implementar';
-    
+
     const verbs = {
       'implementar': 'Implementar',
       'aumentar': 'Aumentar',
@@ -534,7 +544,7 @@ ${objsText}`;
       'organizar': 'Ejecutar',
       'diseñar': 'Implementar'
     };
-    
+
     const firstWord = cleanText.split(' ')[0].toLowerCase().replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
     for (const k in verbs) {
       if (firstWord.startsWith(k)) {
@@ -542,10 +552,10 @@ ${objsText}`;
         break;
       }
     }
-    
+
     let lineaBase = '';
     let meta = '';
-    
+
     const deAMatch = cleanText.match(/(?:de|del|desde)\s+([\d.,]+%?)\s+(?:a|al|hasta)\s+([\d.,]+%?)/i);
     if (deAMatch) {
       lineaBase = deAMatch[1];
@@ -556,17 +566,17 @@ ${objsText}`;
         meta = metaMatch[1];
       }
     }
-    
+
     let queHaras = '';
     const actionsMatch = cleanText.match(/(?:mediante|a través de|con el fin de|para lo cual|priorizando|desarrollando)\s+(.*)/i);
     if (actionsMatch) {
       queHaras = actionsMatch[1].trim();
       queHaras = queHaras.replace(/(?:,\s+)?al cierre del?\s+\d+.*?$/i, '')
-                         .replace(/(?:,\s+)?durante el periodo.*?$/i, '')
-                         .replace(/(?:,\s+)?antes de finalizar.*?$/i, '')
-                         .replace(/\.+$/, '');
+        .replace(/(?:,\s+)?durante el periodo.*?$/i, '')
+        .replace(/(?:,\s+)?antes de finalizar.*?$/i, '')
+        .replace(/\.+$/, '');
     }
-    
+
     let enfoque = cleanText;
     const firstWordLen = cleanText.split(' ')[0].length;
     enfoque = enfoque.substring(firstWordLen).trim();
@@ -575,7 +585,7 @@ ${objsText}`;
       enfoque = enfoque.substring(0, cutPos).trim();
     }
     enfoque = enfoque.replace(/^la\s+/i, '').replace(/^el\s+/i, '').replace(/^[,\s]+|[,\s]+$/g, '');
-    
+
     return {
       action,
       enfoque: enfoque ? enfoque.charAt(0).toUpperCase() + enfoque.slice(1) : '',
@@ -594,45 +604,127 @@ ${objsText}`;
     return "Estratégico";
   }
 
-  // ── MOTOR DE REGLAS HÍBRIDO (Capa 1) ────────────────────────────────────
-  // Prioridad: Métrica numérica > Naturaleza del texto > Verbo
-  function getSuggestedEvalType(actionStr, tipoEvalManual, lineaBase, meta, enfoque, queHaras) {
+  // ── MOTOR DE REGLAS HÍBRIDO v2 ────────────────────────────────────────────
+  // Prioridad: Señales textuales fuertes > Área > Métrica numérica > Verbo
+  // Replica la jerarquía de 5 niveles del Prompt_Clasificador_SMART_USIL.md
+  function getSuggestedEvalType(actionStr, tipoEvalManual, lineaBase, meta, enfoque, queHaras, areaCollab) {
     if (tipoEvalManual) return tipoEvalManual;
     const act = (actionStr || '').toLowerCase();
-    const enf = (enfoque   || '').toLowerCase();
-    const que = (queHaras  || '').toLowerCase();
+    const enf = (enfoque || '').toLowerCase();
+    const que = (queHaras || '').toLowerCase();
     const fullText = `${act} ${enf} ${que}`;
+    const areaLower = (areaCollab || '').toLowerCase();
 
-    // ── Capa 1A: ¿Existe métrica numérica con línea base y meta? ──
-    const baseNum = parseFloat(String(lineaBase || '').replace(',','.'));
-    const metaNum = parseFloat(String(meta      || '').replace(',','.'));
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 1 — SEÑALES FUERTES DE INVERSO (ratio >30x en el dataset)
+    // ══════════════════════════════════════════════════════════════════════
+    const señalesInverso = [
+      'reducir en un', 'reducir el tiempo', 'disminuir en',
+      'tasa de rotación', 'tasa de abandono', 'rotación voluntaria',
+      'por debajo de s/', 'por debajo de', 'morosidad',
+      'devolución', 'devoluciones', 'errores en la facturación',
+      'reducir la tasa', 'disminuir la tasa', 'minimizar',
+      'bajar el índice', 'reducir el índice'
+    ];
+    if (señalesInverso.some(s => fullText.includes(s))) return '📉 Inverso';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 2 — SEÑALES FUERTES DE RANGOS (ratio >100x en el dataset)
+    // ══════════════════════════════════════════════════════════════════════
+    const señalesRangos = [
+      'ahorro acumulado', 'ahorro generado', 'ahorro anual',
+      'órdenes de compra', 'ordenes de compra',
+      'contrato marco', 'tarifario vigente', 'tarifario',
+      'artículos científicos', 'articulos cientificos',
+      'revistas indexadas', 'scopus', 'web of science',
+      'homologación de proveedores', 'homologacion de proveedores',
+      'days payable outstanding', 'dpo',
+      'capex', 'opex', 'capex/opex',
+      'margen de contribución', 'margen de contribucion',
+      'ebitda', 'ebit',
+      'ingresos netos', 'facturación neta', 'facturacion neta',
+      'utilidad operativa', 'rentabilidad operativa',
+      'licitaciones', 'licitación',
+      'producción científica', 'produccion cientifica'
+    ];
+    if (señalesRangos.some(s => fullText.includes(s))) return '📊 Rangos';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 3 — SEÑALES FUERTES DE DISCRETO (ratio >40x en el dataset)
+    // ══════════════════════════════════════════════════════════════════════
+    const señalesDiscreto = [
+      'dentro del plazo', 'dentro de los plazos',
+      'reiteración de pedido', 'reiteracion de pedido',
+      'sin observaciones', 'sin observacion',
+      'antes de su vencimiento', 'antes del vencimiento',
+      'cumplir dentro de los plazos',
+      'resoluciones del tribunal', 'tribunal de apelaciones',
+      'expedientes presentados', 'expedientes de acreditación',
+      'expedientes de acreditacion',
+      'apelaciones', 'indecopi', 'sunedu', 'minedu',
+      'acreditación', 'acreditacion', 'licenciamiento',
+      'auditoría', 'auditoria',
+      'cumplimiento normativo', 'cumplimiento regulatorio',
+      'sanción', 'sancion', 'multa'
+    ];
+    if (señalesDiscreto.some(s => fullText.includes(s))) return '🎯 Discreto';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 2B — CLASIFICACIÓN POR ÁREA ORGANIZACIONAL (prioridad alta)
+    // ══════════════════════════════════════════════════════════════════════
+    const areasDiscreto = [
+      'legal', 'acreditación', 'acreditacion', 'licenciamiento'
+    ];
+    const areasRangos = [
+      'contabilidad', 'finanzas', 'financiero', 'costos', 'presupuesto',
+      'tesorería', 'tesoreria', 'logística', 'logistica',
+      'compras', 'cobranza', 'facturación', 'facturacion',
+      'activos fijos', 'patrimoni', 'investigación', 'investigacion'
+    ];
+    if (areasDiscreto.some(a => areaLower.includes(a))) return '🎯 Discreto';
+    if (areasRangos.some(a => areaLower.includes(a))) return '📊 Rangos';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 4 — MÉTRICA NUMÉRICA (línea base vs meta)
+    // ══════════════════════════════════════════════════════════════════════
+    const baseNum = parseFloat(String(lineaBase || '').replace(',', '.'));
+    const metaNum = parseFloat(String(meta || '').replace(',', '.'));
     const hayMetrica = !isNaN(baseNum) && !isNaN(metaNum);
 
     if (hayMetrica) {
-      if (metaNum > baseNum) {
-        return '📈 Directo';
-      } else if (metaNum < baseNum) {
+      if (metaNum < baseNum) {
         return '📉 Inverso';
       }
-      
-      // Si metaNum === baseNum
-      const señalesRango = ['mantener','sostener','estabiliz','entre','rango','nivel'];
-      if (señalesRango.some(s => fullText.includes(s))) {
-        return '📊 Rango';
+      // metaNum >= baseNum — podría ser Directo o Rango según contexto
+      const señalesEstabilidad = ['mantener', 'sostener', 'estabiliz', 'entre', 'rango', 'nivel'];
+      if (metaNum === baseNum && señalesEstabilidad.some(s => fullText.includes(s))) {
+        return '📊 Rangos';
       }
+      // Default para meta > base sin señales especiales
       return '📈 Directo';
     }
 
-    // ── Capa 1B: Sin métrica numérica → usar verbo/texto ──
-    const verbosInverso = ['reducir','disminuir','bajar','eliminar'];
+    // ══════════════════════════════════════════════════════════════════════
+    // NIVEL 5 — CLASIFICACIÓN POR VERBO (sin señales textuales ni números)
+    // ══════════════════════════════════════════════════════════════════════
+    const verbosInverso = ['reducir', 'disminuir', 'bajar', 'eliminar', 'minimizar'];
     if (verbosInverso.some(v => act.includes(v))) return '📉 Inverso';
 
-    const verbosRango = ['mantener','sostener'];
-    if (verbosRango.some(v => act.includes(v))) return '📊 Rango';
+    const verbosRango = ['mantener', 'sostener'];
+    // "mantener" algo positivo por encima → Directo; algo negativo por debajo → Inverso
+    if (verbosRango.some(v => act.includes(v))) {
+      const señalesNegativas = ['rotación', 'rotacion', 'abandono', 'error', 'mora', 'gasto', 'costo', 'desperdicio'];
+      if (señalesNegativas.some(s => fullText.includes(s))) return '📉 Inverso';
+      return '📊 Rangos';
+    }
 
-    // Verbos de implementación sin métrica → Discreto
-    const verbosDiscreto = ['implementar','ejecutar','crear','desarrollar','diseñar','desplegar','lanzar','construir','establecer'];
+    // Verbos de implementación → Discreto
+    const verbosDiscreto = ['implementar', 'ejecutar', 'crear', 'desarrollar', 'diseñar', 'desplegar', 'lanzar', 'construir', 'establecer'];
     if (verbosDiscreto.some(v => act.includes(v) || enf.startsWith(v))) return '🎯 Discreto';
+
+    // Verbos de crecimiento → Directo
+    const verbosDirecto = ['aumentar', 'incrementar', 'mejorar', 'ampliar', 'elevar', 'crecer', 'fortalecer', 'potenciar', 'optimizar'];
+    if (verbosDirecto.some(v => act.includes(v))) return '📈 Directo';
 
     return '📈 Directo';
   }
@@ -671,24 +763,24 @@ ${objsText}`;
     if (!state.collabInfo || !state.collabInfo.objetivos_2025 || state.collabInfo.objetivos_2025.length === 0) {
       return null;
     }
-    
+
     const currentText = `${obj.enfoque || ''} ${obj.queHaras || ''}`.toLowerCase();
     if (!currentText.trim()) return null;
-    
+
     const currentWords = currentText.split(/\s+/).filter(w => w.length > 4);
     if (currentWords.length === 0) return null;
 
     for (const prevText of state.collabInfo.objetivos_2025) {
       const prevClean = prevText.toLowerCase();
       const prevWords = prevClean.split(/\s+/).filter(w => w.length > 4);
-      
+
       let matchCount = 0;
       for (const pw of prevWords) {
         if (currentWords.includes(pw)) matchCount++;
       }
-      
+
       const matchRatio = prevWords.length > 0 ? matchCount / prevWords.length : 0;
-      
+
       if (matchRatio > 0.4 || matchCount >= 4) {
         return {
           previousText: prevText
@@ -702,7 +794,7 @@ ${objsText}`;
     const area = state.area;
     if (!area || !obj.enfoque) return null;
     const enf = obj.enfoque.toLowerCase();
-    
+
     for (const prev of PREV_OBJ_2025) {
       if (prev.area !== area) continue;
       if (prev.excepcionLegal && area === 'Legal') continue;
@@ -724,7 +816,14 @@ ${objsText}`;
   }
 
   function analyzeObjectiveViability(obj) {
-    const evalType = obj.tipoEval || getSuggestedEvalType(obj.action, null, obj.lineaBase, obj.meta, obj.enfoque, obj.queHaras);
+    const emojiMap = { 'Directo': '📈', 'Inverso': '📉', 'Rangos': '📊', 'Discreto': '🎯', 'Rango': '📊' };
+    let evalType = '';
+    if (obj.tipoEvalManual) {
+      const emoji = emojiMap[obj.tipoEvalManual] || '📈';
+      evalType = `${emoji} ${obj.tipoEvalManual}`;
+    } else {
+      evalType = obj.tipoEval || getSuggestedEvalType(obj.action, obj.tipoEvalManual, obj.lineaBase, obj.meta, obj.enfoque, obj.queHaras, state.area);
+    }
     const base = parseNumericValue(obj.lineaBase);
     const meta = parseNumericValue(obj.meta);
     const accionDescriptiva = obj.queHaras && obj.queHaras.trim().length >= 20;
@@ -775,21 +874,11 @@ ${objsText}`;
         reasons.push(`La reducción supera el ${Math.round(variationPct * 100)}% sobre la línea base.`);
       }
     } else if (evalType.includes('Rango')) {
-      if (variationPct <= 0.1) {
-        level = 'baja';
-        title = 'Objetivo viable';
-        message = 'La meta plantea sostener el resultado actual con una variación controlada.';
-        statusColor = 'var(--success)';
-        reasons.push('La diferencia entre línea base y meta es acotada, consistente con un objetivo de mantenimiento.');
-      } else if (variationPct <= 0.2) {
-        reasons.push('La meta se aleja del mantenimiento puro; revisa si el verbo correcto debería ser aumentar o reducir.');
-      } else {
-        level = 'alta';
-        title = 'Inconsistencia en la meta';
-        message = 'El objetivo se declaró como mantenimiento, pero la variación propuesta es demasiado amplia.';
-        statusColor = 'var(--danger)';
-        reasons.push(`La variación es de ${Math.round(variationPct * 100)}%, alta para un objetivo de mantener.`);
-      }
+      level = 'baja';
+      title = 'Objetivo de estabilidad';
+      message = 'El objetivo busca mantener el resultado dentro de los límites definidos.';
+      statusColor = 'var(--success)';
+      reasons.push(`Se evaluará el mantenimiento del indicador entre ${base} y ${meta}.`);
     } else if (evalType.includes('Discreto')) {
       if (!obj.queHaras || obj.queHaras.trim().length < 12) {
         reasons.push('Describe con mayor precisión la acción principal para sustentar un objetivo discreto.');
@@ -848,26 +937,26 @@ ${objsText}`;
   function renderWizardStep() {
     const obj = state.objectives[state.currentObjIndex];
     UI.stepBadge.textContent = `Paso ${state.wizardStep} / ${TOTAL_STEPS}`;
-    
+
     UI.progressSegments.innerHTML = '';
-    for(let i=1; i<=TOTAL_STEPS; i++) {
+    for (let i = 1; i <= TOTAL_STEPS; i++) {
       const seg = document.createElement('div');
       seg.className = `segment ${i === state.wizardStep ? 'active' : ''} ${i < state.wizardStep ? 'completed' : ''}`;
       UI.progressSegments.appendChild(seg);
     }
 
     UI.btnPrev.classList.toggle('hidden', state.wizardStep === 1);
-    
+
     if (state.wizardStep === TOTAL_STEPS) {
       UI.btnNext.textContent = 'Generar Objetivo';
-      UI.btnNext.className = 'btn-success'; 
+      UI.btnNext.className = 'btn-success';
     } else {
       UI.btnNext.textContent = 'Siguiente';
-      UI.btnNext.className = 'btn-primary'; 
+      UI.btnNext.className = 'btn-primary';
     }
 
     let html = '';
-    
+
     if (state.wizardStep === 1) {
       html = `
         <div>
@@ -886,13 +975,13 @@ ${objsText}`;
           </select>
         </div>
       `;
-    } 
+    }
     else if (state.wizardStep === 2) {
       const pilaresList = [
-        "Cultura USIL", 
-        "Excelencia académica", 
-        "Transformación digital", 
-        "Internacionalización", 
+        "Cultura USIL",
+        "Excelencia académica",
+        "Transformación digital",
+        "Internacionalización",
         "Crecimiento sostenible"
       ];
 
@@ -918,7 +1007,9 @@ ${objsText}`;
     // STEP 3: Indicador actual, meta y acciones
     else if (state.wizardStep === 3) {
       const enfHint = obj.enfoque ? `<div style="background:#f1f5f9; border-radius:8px; padding:0.6rem 0.75rem; margin-bottom:0.85rem; font-size:0.8rem; color:#475569;"><span style="font-weight:700; color:#1e3a5f;">Tu objetivo es:</span> ${obj.enfoque}</div>` : '';
-      
+
+      const tarjetas = '';
+
       html = `
         <div>
           <div class="input-grid" style="margin-top:1rem; margin-bottom:1.5rem;">
@@ -951,6 +1042,14 @@ ${objsText}`;
               </div>
             </div>
           </div>
+
+          <div style="border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1.5rem;">
+            <p class="input-label" style="margin-top:0">¿Cuál es el <strong>impacto esperado</strong> de lograr este objetivo? <span style="color:var(--danger)">*</span></p>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Describe el propósito de negocio: ¿para qué se hace?</p>
+            <input type="text" class="custom-input" id="inp-impacto" placeholder="Ej. Garantizar información confiable para la toma de decisiones gerenciales" value="${obj.impacto || ''}">
+          </div>
+          
+          ${tarjetas}
         </div>
       `;
     }
@@ -960,7 +1059,7 @@ ${objsText}`;
     // EVENT LISTENERS WITH REAL-TIME AUTOSAVE
     const handleInput = (id, field) => {
       const el = document.getElementById(id);
-      if(el) {
+      if (el) {
         el.addEventListener('input', (e) => { obj[field] = e.target.value; saveState(true); });
         el.addEventListener('change', (e) => { obj[field] = e.target.value; saveState(true); });
       }
@@ -968,7 +1067,7 @@ ${objsText}`;
 
     if (state.wizardStep === 1) {
       const sel = document.getElementById('sel-accion');
-      if(sel) {
+      if (sel) {
         sel.addEventListener('change', (e) => {
           obj.action = e.target.value;
           saveState(true);
@@ -977,7 +1076,7 @@ ${objsText}`;
     } else if (state.wizardStep === 2) {
       handleInput('inp-enfoque', 'enfoque');
       const container = document.getElementById('pilares-container');
-      if(container) {
+      if (container) {
         container.querySelectorAll('.chk-pilar').forEach(chk => {
           chk.addEventListener('change', () => {
             const checked = Array.from(container.querySelectorAll('.chk-pilar:checked')).map(c => c.value);
@@ -995,6 +1094,7 @@ ${objsText}`;
       handleInput('inp-base', 'lineaBase');
       handleInput('inp-meta', 'meta');
       handleInput('inp-que', 'queHaras');
+      handleInput('inp-impacto', 'impacto');
 
       // Detector de redundancia en tiempo real
       const inp = document.getElementById('inp-que');
@@ -1002,9 +1102,9 @@ ${objsText}`;
       const checkRedundancy = () => {
         if (!inp || !warnEl || !obj.enfoque) return;
         const normR = s => s.toLowerCase()
-          .replace(/[áà]/g,'a').replace(/[éè]/g,'e')
-          .replace(/[íì]/g,'i').replace(/[óò]/g,'o')
-          .replace(/[úù]/g,'u').replace(/[^a-z\s]/g,' ');
+          .replace(/[áà]/g, 'a').replace(/[éè]/g, 'e')
+          .replace(/[íì]/g, 'i').replace(/[óò]/g, 'o')
+          .replace(/[úù]/g, 'u').replace(/[^a-z\s]/g, ' ');
         const enfW = normR(obj.enfoque).split(/\s+/).filter(w => w.length > 4);
         const queW = normR(inp.value).split(/\s+/).filter(w => w.length > 4);
         if (enfW.length > 0 && queW.length > 0) {
@@ -1017,23 +1117,24 @@ ${objsText}`;
 
       // Generar sugerencias IA en segundo plano
       generateActionSuggestions(obj);
+
     }
 
   }
 
   // ── GENERADOR DE SUGERENCIAS DE ACCIONES CON IA ──────────────────────────
   async function generateActionSuggestions(obj) {
-    const loadingEl  = document.getElementById('ai-actions-loading');
-    const chipsEl    = document.getElementById('ai-actions-chips');
-    const container  = document.getElementById('ai-chips-container');
+    const loadingEl = document.getElementById('ai-actions-loading');
+    const chipsEl = document.getElementById('ai-actions-chips');
+    const container = document.getElementById('ai-chips-container');
     if (!loadingEl || !chipsEl || !container) return;
 
-    const puesto  = state.collabInfo?.puesto || 'Colaborador';
-    const area    = state.collabInfo?.area   || state.area || 'General';
-    const verbo   = obj.action   || 'Implementar';
-    const enfoque = obj.enfoque  || '';
-    const meta    = obj.meta     || '';
-    const base    = obj.lineaBase || '';
+    const puesto = state.collabInfo?.puesto || 'Colaborador';
+    const area = state.collabInfo?.area || state.area || 'General';
+    const verbo = obj.action || 'Implementar';
+    const enfoque = obj.enfoque || '';
+    const meta = obj.meta || '';
+    const base = obj.lineaBase || '';
 
     const prompt = `Eres un experto en gestión del desempeño de USIL (Perú).
 
@@ -1053,9 +1154,9 @@ Responde SOLO con un JSON válido, sin markdown:
     try {
       const raw = await callGeminiAI(prompt);
       if (!raw) throw new Error('No response');
-      let cleaned = raw.trim().replace(/```json\s*/g,'').replace(/```\s*/g,'');
+      let cleaned = raw.trim().replace(/```json\s*/g, '').replace(/```\s*/g, '');
       const fb = cleaned.indexOf('{'), lb = cleaned.lastIndexOf('}');
-      if (fb !== -1 && lb !== -1) cleaned = cleaned.substring(fb, lb+1);
+      if (fb !== -1 && lb !== -1) cleaned = cleaned.substring(fb, lb + 1);
       const parsed = JSON.parse(cleaned);
       const sugs = parsed.sugerencias || [];
 
@@ -1106,7 +1207,7 @@ Responde SOLO con un JSON válido, sin markdown:
       } else {
         loadingEl.style.display = 'none';
       }
-    } catch(e) {
+    } catch (e) {
       console.warn('AI action suggestions failed:', e);
       loadingEl.style.display = 'none';
     }
@@ -1122,7 +1223,7 @@ Responde SOLO con un JSON válido, sin markdown:
         showStepError('Debes seleccionar un verbo de acción antes de continuar.');
         return;
       }
-      
+
       // Sin restricción: cualquier colaborador puede usar "Implementar" o "Ejecutar"
     }
 
@@ -1145,35 +1246,27 @@ Responde SOLO con un JSON válido, sin markdown:
       const baseVal = (document.getElementById('inp-base')?.value || '').trim();
       const metaVal = (document.getElementById('inp-meta')?.value || '').trim();
       const queVal = (document.getElementById('inp-que')?.value || '').trim();
-      
+      const impactoVal = (document.getElementById('inp-impacto')?.value || '').trim();
+
       let hasError = false;
-      if (!baseVal || !metaVal) {
-        ['inp-base', 'inp-meta'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el && !el.value.trim()) {
-            el.style.borderColor = 'var(--danger)';
-            el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
-          }
-        });
-        hasError = true;
-      }
-      if (!queVal) {
-        const el = document.getElementById('inp-que');
-        if (el) {
+      ['inp-base', 'inp-meta', 'inp-que', 'inp-impacto'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.value.trim()) {
           el.style.borderColor = 'var(--danger)';
           el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+          hasError = true;
         }
-        hasError = true;
-      }
-      
+      });
+
       if (hasError) {
-        showStepError('Debes completar el indicador actual, la meta y las acciones antes de generar el objetivo.');
+        showStepError('Debes completar todos los campos: indicador actual, meta, acciones e impacto esperado.');
         return;
       }
-      
+
       obj.lineaBase = baseVal;
       obj.meta = metaVal;
       obj.queHaras = queVal;
+      obj.impacto = impactoVal;
     }
     // ── END VALIDATION ───────────────────────────────────────────────────────
 
@@ -1184,7 +1277,7 @@ Responde SOLO con un JSON válido, sin markdown:
     } else {
       // PRE-CHECK BEFORE GENERATION
       const similarityCheck = checkPreviousYearCollabSimilarity(obj);
-      
+
       if (similarityCheck) {
         // Show pre-generation warning modal
         const modalHtml = `
@@ -1210,7 +1303,7 @@ Responde SOLO con un JSON válido, sin markdown:
           </div>
         `;
         document.body.insertAdjacentHTML('beforeend', modalHtml);
-        
+
         document.getElementById('btn-modal-edit').addEventListener('click', () => {
           document.getElementById('pre-gen-modal').remove();
           // Regresar al paso 2 para que edite la esencia del proyecto
@@ -1218,7 +1311,7 @@ Responde SOLO con un JSON válido, sin markdown:
           saveState(false);
           renderWizardStep();
         });
-        
+
         document.getElementById('btn-modal-proceed').addEventListener('click', () => {
           document.getElementById('pre-gen-modal').remove();
           generateResult();
@@ -1276,20 +1369,20 @@ Responde SOLO con un JSON válido, sin markdown:
     let meta = (obj.meta || '').trim();
     let que = (obj.queHaras || '').trim();
     let pilar = (obj.pilares && obj.pilares.length > 0) ? obj.pilares[0] : '';
-    
+
     // --- MOTOR DE REGLAS: Eliminar verbo duplicado al inicio del enfoque ---
     // Si el usuario escribe el verbo dentro del campo "enfoque", se duplicaría con el
     // verbo del dropdown. Esta regla lo detecta y elimina antes de construir el texto.
     if (enf) {
       const normalize = s => s.toLowerCase()
-        .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u');
+        .replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
 
       // Todos los sinónimos de cada verbo del dropdown
       const verbGroups = [
         ['implementar', 'implementacion', 'implementación'],
         ['ejecutar', 'ejecucion', 'ejecución'],
-        ['aumentar','incrementar', 'aumento', 'incremento'],
-        ['reducir','disminuir', 'reduccion', 'reducción', 'disminucion', 'disminución'],
+        ['aumentar', 'incrementar', 'aumento', 'incremento'],
+        ['reducir', 'disminuir', 'reduccion', 'reducción', 'disminucion', 'disminución'],
         ['mantener', 'mantenimiento'],
         ['optimizar', 'optimizacion', 'optimización'],
         ['lograr', 'logro'],
@@ -1301,7 +1394,7 @@ Responde SOLO con un JSON válido, sin markdown:
       for (const group of verbGroups) {
         if (group.includes(firstWord)) {
           // Strip the leading verb word(s) — remove first word + any trailing space
-          enf = enf.replace(/^\S+\s*/,'').trim();
+          enf = enf.replace(/^\S+\s*/, '').trim();
           // Strip leading "de " or "del " that might be left over (e.g. "Incremento de participacion" -> "participacion")
           enf = enf.replace(/^(de|del)\s+/i, '').trim();
           break;
@@ -1316,7 +1409,7 @@ Responde SOLO con un JSON válido, sin markdown:
         enf = enf.charAt(0).toLowerCase() + enf.slice(1);
       }
     }
-    
+
     if (que) {
       que = que.replace(/\\.$/, '').trim();
       if (que.charAt(0) === que.charAt(0).toUpperCase() && !/^[A-Z]{2,}/.test(que)) {
@@ -1333,9 +1426,9 @@ Responde SOLO con un JSON válido, sin markdown:
       // Si queHaras repite el mismo contenido que enfoque (>50% overlap), lo nullificamos
       // para no generar frases como "Implementar X, mediante implementar X..."
       const normFn = s => s.toLowerCase()
-        .replace(/[\u00e1\u00e0]/g,'a').replace(/[\u00e9\u00e8]/g,'e')
-        .replace(/[\u00ed\u00ec]/g,'i').replace(/[\u00f3\u00f2]/g,'o')
-        .replace(/[\u00fa\u00f9]/g,'u').replace(/[^a-z\s]/g,' ');
+        .replace(/[\u00e1\u00e0]/g, 'a').replace(/[\u00e9\u00e8]/g, 'e')
+        .replace(/[\u00ed\u00ec]/g, 'i').replace(/[\u00f3\u00f2]/g, 'o')
+        .replace(/[\u00fa\u00f9]/g, 'u').replace(/[^a-z\s]/g, ' ');
       if (enf) {
         const enfWords = normFn(enf).split(/\s+/).filter(w => w.length > 4);
         const queWords = normFn(que).split(/\s+/).filter(w => w.length > 4);
@@ -1349,7 +1442,7 @@ Responde SOLO con un JSON válido, sin markdown:
         }
       }
     }
-    
+
     // Add units like % if missing but present in the other
     if (base && meta) {
       if (meta.endsWith('%') && !base.endsWith('%') && /^\d+$/.test(base)) {
@@ -1359,7 +1452,7 @@ Responde SOLO con un JSON válido, sin markdown:
         meta = meta + '%';
       }
     }
-    
+
     let rangeText = '';
     if (base && meta) {
       rangeText = ` del ${base} al ${meta}`;
@@ -1369,12 +1462,11 @@ Responde SOLO con un JSON válido, sin markdown:
     } else if (meta) {
       rangeText = ` en ${meta}`;
     }
-    
+
     let text = '';
     if (act === 'Implementar' || act === 'Ejecutar') {
       text = `${act} ${enf}`;
-      // Usar el tipo real determinado por la IA/motor, no solo el verbo
-      const tipoReal = (obj.tipoEval || '').toLowerCase();
+      const tipoReal = (obj.tipoEvalManual || obj.tipoEval || '').toLowerCase();
       if (tipoReal.includes('inverso') && base && meta) {
         text += `, reduciendo el indicador de ${base} a ${meta}`;
       } else if (tipoReal.includes('directo') && base && meta) {
@@ -1416,16 +1508,60 @@ Responde SOLO con un JSON válido, sin markdown:
         text += `, ${prep}${que}`;
       }
     }
-    
+    // Impacto organizacional
+    if (obj.impacto && obj.impacto.trim().length > 5) {
+      let imp = obj.impacto.trim();
+      if (imp.charAt(0) === imp.charAt(0).toUpperCase() && !/^[A-Z]{2,}/.test(imp)) {
+        imp = imp.charAt(0).toLowerCase() + imp.slice(1);
+      }
+      imp = imp.replace(/\.+$/, '');
+      text += `, con el fin de ${imp}`;
+    }
+
+    // Cálculo del porcentaje de crecimiento/reducción
+    const baseCalc = parseFloat(String(obj.lineaBase || '').replace(',', '.'));
+    const metaCalc = parseFloat(String(obj.meta || '').replace(',', '.'));
+    if (!isNaN(baseCalc) && !isNaN(metaCalc) && baseCalc !== 0) {
+      const deltaPct = Math.abs(((metaCalc - baseCalc) / baseCalc) * 100);
+      const roundedPct = Math.round(deltaPct * 10) / 10;
+      if (roundedPct > 0) {
+        const direction = metaCalc > baseCalc ? 'crecimiento' : 'reducción';
+        text += `, representando un ${direction} del ${roundedPct}%`;
+      }
+    }
+
     // Timeline anchor
-    text += `, para el cierre del año 2026.`;
-    
+    text += `, al cierre del año 2026.`;
+
     // Clean text and capitalize
     text = text.replace(/\s+/g, ' ').replace(/\.\s*,/g, ',').replace(/,\s*,/g, ',').trim();
     text = text.charAt(0).toUpperCase() + text.slice(1);
     if (!text.endsWith('.')) text += '.';
-    
+
     return text;
+  }
+
+  function getClasificacionJustificacion(tipo, base, meta) {
+    if (tipo === 'Directo') {
+      const b = parseFloat(String(base).replace(',', '.'));
+      const m = parseFloat(String(meta).replace(',', '.'));
+      if (!isNaN(b) && !isNaN(m) && m > b) {
+        return "la meta es superior a la línea base.";
+      }
+      return "busca incrementar el indicador.";
+    } else if (tipo === 'Inverso') {
+      const b = parseFloat(String(base).replace(',', '.'));
+      const m = parseFloat(String(meta).replace(',', '.'));
+      if (!isNaN(b) && !isNaN(m) && m < b) {
+        return "la meta es inferior a la línea base.";
+      }
+      return "busca reducir el indicador.";
+    } else if (tipo === 'Discreto') {
+      return "el indicador representa cumplimiento de un hito o entregable.";
+    } else if (tipo === 'Rangos') {
+      return "el indicador debe mantenerse dentro de límites o condiciones definidas.";
+    }
+    return "fue seleccionado manualmente.";
   }
 
   async function generateResult() {
@@ -1451,8 +1587,10 @@ Responde SOLO con un JSON válido, sin markdown:
 
     // --- Call Gemini to determine objective type + suggestion ---
     const historial = (state.collabInfo?.objetivos_2025 || []).join(' | ');
-    const objetivoCompleto = `${obj.action} ${obj.enfoque} (de ${obj.lineaBase} a ${obj.meta}) mediante ${obj.queHaras}`;
-    const aiPrompt = `Eres un experto en formulación de objetivos SMART, OKR y KPIs para USIL (Universidad San Ignacio de Loyola, Perú).
+    const objetivoCompleto = `${obj.action} ${obj.enfoque} (de ${obj.lineaBase} a ${obj.meta}) mediante ${obj.queHaras}, con el fin de ${obj.impacto}`;
+    const aiPrompt = `Eres un experto en Gestión del Desempeño, OKRs, KPIs y metodología SMART de la Corporación Educativa USIL.
+
+Tu tarea NO es redactar inmediatamente el objetivo. Primero debes VALIDAR que existan los 7 componentes obligatorios, luego clasificar el tipo, y finalmente generar el objetivo profesional.
 
 Perfil del colaborador:
 - Nombre: ${nombre}
@@ -1460,65 +1598,137 @@ Perfil del colaborador:
 - Área: ${area}
 - Historial Objetivos 2025: ${historial ? historial : 'Sin historial previo'}
 
-Datos del objetivo 2026:
-- Verbo de acción: ${obj.action}
-- Proyecto/Enfoque: ${obj.enfoque}
-- Indicador actual (línea base): ${obj.lineaBase}
-- Meta esperada: ${obj.meta}
-- Pilares: ${(obj.pilares || []).join(', ')}
-- Acciones declaradas: ${obj.queHaras}
+COMPONENTES DEL OBJETIVO 2026 (los 7 campos obligatorios):
+1. Verbo SMART: ${obj.action}
+2. Indicador/Proyecto: ${obj.enfoque}
+3. Línea base: ${obj.lineaBase}
+4. Meta esperada: ${obj.meta}
+5. Método/Estrategia: ${obj.queHaras}
+6. Impacto organizacional: ${obj.impacto}
+7. Plazo: cierre del año 2026
+- Pilares estratégicos: ${(obj.pilares || []).join(', ')}
 - Objetivo completo inferido: "${objetivoCompleto}"
 
-━━━ TAREA 1: CLASIFICAR TIPO DE EVALUACIÓN ━━━
+━━━ TAREA 1: CLASIFICAR TIPO DE EVALUACIÓN (PROMPT COMPLETO) ━━━
 
-Tipos posibles:
-1. DIRECTO  — Mayor valor es mejor. Ej: aumentar ventas de 100 a 150.
-2. INVERSO  — Menor valor es mejor. Ej: reducir tiempo de atención de 30 a 10 min.
-3. DISCRETO — Solo se evalúa si se cumplió o no (binario: sí/no). Ej: implementar un ERP sin métricas de resultado.
-4. Rango    — El indicador debe mantenerse dentro de un intervalo. Ej: mantener inventario entre 95% y 105%.
+DEFINICIÓN DE LOS 4 TIPOS:
 
-REGLAS DE CLASIFICACIÓN (en orden de prioridad):
-- REGLA 1: Si existen línea base y meta numéricas → NUNCA uses Discreto. Analiza la naturaleza de la métrica:
-  * Si menor es mejor (reducir tiempo, costos, errores, rotación, mora) → INVERSO
-  * Si mayor es mejor (aumentar ventas, productividad, satisfacción) → DIRECTO
-  * Si hay rango mínimo/máximo → Rango
-- REGLA 2: Si NO hay métricas numéricas Y el resultado es binario (se hace o no se hace) → DISCRETO
-- REGLA 3: NO clasifiques como Discreto solo porque el verbo sea "implementar". Si hay métrica de mejora, prioriza Directo o Inverso.
+TIPO 1: DIRECTO
+Lógica: Mayor valor logrado = mayor porcentaje de logro.
+Fórmula: % Logro = (Valor Logrado / Meta) × 100
+Cuándo usar: El indicador mide avance, ejecución, cobertura, cantidad de cosas realizadas o porcentajes de cumplimiento donde más es mejor.
+Ejemplo: "Implementar 4 campañas" → si logra 4, obtiene 100%; si logra 5, obtiene 120%.
 
-Casos de referencia:
-| Objetivo                                              | Tipo     |
-|-------------------------------------------------------|----------|
-| Implementar ERP                                       | Discreto |
-| Implementar ERP para reducir tiempos de 20 a 5 días  | Inverso  |
-| Aumentar ventas en 30%                                | Directo  |
-| Reducir rotación de personal de 15% a 5%              | Inverso  |
-| Mantener disponibilidad entre 99.5% y 99.9%           | Rango    |
-| Lanzar portal de empleados                            | Discreto |
-| Crear chatbot para reducir tickets en 40%             | Inverso  |
-| Implementar IA para aumentar productividad en 25%     | Directo  |
+TIPO 2: INVERSO
+Lógica: Menor valor logrado = mayor porcentaje de logro.
+Fórmula: % Logro = (Meta / Valor Logrado) × 100
+Cuándo usar: El indicador mide algo negativo que se quiere reducir: errores, tiempo de resolución, tasas de abandono, desperdicios, rotación de personal, morosidad, devoluciones, reclamos.
+Ejemplo: "Reducir la tasa de rotación al 8%" → si logra 6%, obtiene 133%.
+Trampa: Si se usa DIRECTO aquí, el sistema castiga al colaborador que redujo más de lo esperado.
+
+TIPO 3: DISCRETO
+Lógica: Cumplimiento por umbrales fijos, generalmente todo o nada.
+Estructura: 99% o menos → 0% | 100% → 100% | 100% con anticipación → 120%
+Cuándo usar: Cumplimiento normativo, legal o regulatorio donde el incumplimiento total tiene consecuencias fijas (multa, sanción, observación SUNEDU/INDECOPI/MINEDU).
+Ejemplo: "Atender el 100% de reclamos SAC de INDECOPI dentro de 2 días hábiles".
+
+TIPO 4: RANGOS
+Lógica: Escala graduada de 4 niveles de logro.
+Estructura: Nivel 0 → 0% | Nivel 1 (mínimo) → 85% | Nivel 2 (esperado) → 100% | Nivel 3 (sobresaliente) → 120%
+Cuándo usar: Resultados financieros, comerciales, de abastecimiento o de producción científica donde distintos niveles de logro tienen valor diferenciado.
+Ejemplo: "Generar ahorro acumulado de S/ 2,488,296" → lograr 85% de la meta tiene valor significativo.
+
+REGLAS DE CLASIFICACIÓN POR ÁREA ORGANIZACIONAL (PRIORIDAD ALTA):
+GERENCIA LEGAL / VICEPRESIDENCIA LEGAL / DIRECCIÓN DE ACREDITACIÓN / ACREDITACIÓN Y LICENCIAMIENTO / LICENCIAMIENTO → DISCRETO
+SUBGERENCIA DE CONTABILIDAD / VICEPRESIDENCIA DE FINANZAS / ANÁLISIS Y PLAN FINANCIERO / COSTOS Y PRESUPUESTOS / COMPENSACIONES Y PRESUPUESTO / SUBGERENCIA CORPORATIVA DE TESORERÍA / LOGÍSTICA / COMPRAS / CRÉDITOS Y COBRANZAS / GERENCIA CORPORATIVO DE FACTURACIÓN / ACTIVOS FIJOS Y CONTROL PATRIMONIAL / DIRECCIÓN GESTIÓN DE LA INVESTIGACIÓN → RANGOS
+
+REGLAS POR SEÑALES TEXTUALES (en orden de prioridad):
+
+NIVEL 1 — SEÑALES FUERTES DE INVERSO:
+"reducir en un X%", "reducir el tiempo", "disminuir en", "tasa de rotación", "tasa de abandono", "por debajo de S/.", "morosidad", "devolución", "rotación voluntaria", "errores en la facturación"
+
+NIVEL 2 — SEÑALES FUERTES DE RANGOS:
+"ahorro acumulado", "órdenes de compra", "contrato marco", "tarifario vigente", "artículos científicos", "revistas indexadas", "en SCOPUS", "homologación de proveedores", "DPO", "CAPEX/OPEX", "margen de contribución", "EBITDA"
+
+NIVEL 3 — SEÑALES FUERTES DE DISCRETO:
+"dentro del plazo" + área legal/normativa, "reiteración de pedido", "sin observaciones", "antes de su vencimiento", "cumplir dentro de los plazos", "resoluciones del Tribunal", "expedientes presentados", "apelaciones" + área legal
+
+NIVEL 4 — POR VERBO INICIAL:
+reducir/disminuir/minimizar/bajar → INVERSO (ALTA) | mantener algo negativo → INVERSO (MEDIA) | lograr con escala financiera → RANGOS (MEDIA) | participar en eventos/publicaciones → RANGOS (MEDIA) | incrementar/aumentar → DIRECTO (ALTA) | mejorar/diseñar/organizar → DIRECTO (MEDIA) | implementar proceso normativo → DISCRETO (MEDIA) | lograr/alcanzar/implementar general → DIRECTO (BAJA)
+
+NIVEL 5 — RESIDUAL: Si nada aplica → DIRECTO con confianza BAJA.
+
+SEÑALES QUE INVALIDAN UNA CLASIFICACIÓN (errores frecuentes):
+- Área Finanzas/Contabilidad + DIRECTO → Cambiar a RANGOS
+- Área Legal/Acreditación + DIRECTO → Cambiar a DISCRETO
+- Verbo "reducir" + DIRECTO → Cambiar a INVERSO
+- "mantener por debajo de" + DIRECTO → Cambiar a INVERSO
+- RANGOS en actividades académicas → Cambiar a DIRECTO
+- INVERSO con meta de S/ absoluto (no tasa) → Cambiar a RANGOS
+
+CASOS AMBIGUOS:
+- "Mantener" positivo por encima de umbral → DIRECTO | "Mantener" negativo por debajo → INVERSO
+- "Lograr" académico/operativo → DIRECTO | financiero → RANGOS | normativo/legal → DISCRETO
+- "Implementar" proporcional → DIRECTO | auditoría/acreditación/normativa → DISCRETO
+- Publicaciones en SCOPUS, artículos enviados → RANGOS
 
 ━━━ TAREA 2: CORRECCIÓN ORTOGRÁFICA (silenciosa y agresiva) ━━━
-Corrige TODOS los errores en Proyecto/Enfoque y Acciones. Reglas estrictas:
-1. Palabras de UNA sola letra que no sean artículos válidos (a, e, o, u, y) → reconstruir por contexto. Ej: "sistema d vacaciones" → "sistema de vacaciones", "q" → "que".
-2. Palabras con letras faltantes → completar. Ej: "vacacion" → "vacaciones", "basandome" → "basándome".
-3. Tildes faltantes en palabras comunes → agregar. Ej: "gestion" → "gestión", "digitalizacion" → "digitalización".
-4. Frases coloquiales o informales fuera de contexto laboral ("comprendes", "esto comprendes", "sabes") → eliminar silenciosamente.
+1. Palabras de UNA sola letra que no sean artículos válidos (a, e, o, u, y) → reconstruir por contexto.
+2. Palabras con letras faltantes → completar.
+3. Tildes faltantes → agregar.
+4. Frases coloquiales o informales fuera de contexto laboral → eliminar silenciosamente.
 5. NO cambies el sentido ni elimines información relevante del objetivo.
 
 ━━━ TAREA 3: ANÁLISIS PREDICTIVO ━━━
 Genera una sugerencia retadora basada en el historial 2025 del colaborador y su puesto.
 
-IMPORTANTE — Corrección ortográfica: Corrige silenciosamente cualquier error tipográfico o de ortografía en los campos "Proyecto/Enfoque" y "Acciones" del usuario. No cambies el sentido, solo corrige errores de escritura evidentes (letras faltantes, palabras duplicadas, mayúsculas incorrectas, etc.).
+━━━ TAREA 4: VALIDAR Y GENERAR OBJETIVO SMART PROFESIONAL ━━━
+Actúa como un experto en Gestión del Desempeño de la Corporación Educativa USIL.
+
+PASO 1 — VALIDAR: Verifica que los 7 componentes obligatorios existan y tengan contenido real:
+1. Verbo SMART (no genérico)
+2. Indicador/Proyecto (específico y medible)
+3. Línea base (valor numérico actual)
+4. Meta (valor numérico objetivo)
+5. Método/Estrategia (cómo se logrará — NO puede repetir el proyecto)
+6. Impacto organizacional (para qué se hace — propósito de negocio)
+7. Plazo (temporal)
+
+Si alguno falta o es genérico/vacío, marca "completo": false y lista los faltantes.
+
+PASO 2 — GENERAR: Solo si todos los componentes existen, reescribe el objetivo como una versión profesional, ejecutiva y evaluable.
+
+REGLAS DE GENERACIÓN:
+- Nunca ignores un componente. Los 7 deben reflejarse en el texto final.
+- El método debe aparecer explícitamente (mediante/a través de).
+- El impacto debe aparecer explícitamente (con el fin de/para).
+- La línea base debe aparecer explícitamente.
+- La meta debe aparecer explícitamente.
+- SIEMPRE calcula matemáticamente la diferencia porcentual o el porcentaje de crecimiento/reducción entre la línea base y la meta e inclúyelo en la redacción de forma explícita (ej. "representando un crecimiento de X%").
+- El plazo debe aparecer explícitamente (al cierre del año 2026).
+- Si contiene porcentajes, especifica respecto a qué valor se comparan.
+- Si contiene métricas absolutas, asegúrate de que sean cuantificables.
+- Elimina actividades operativas como objetivo principal. Enfócate en resultados e impacto.
+- El resultado debe tener entre 40 y 80 palabras.
+- Redacción ejecutiva, breve y profesional.
+- No uses frases genéricas. El objetivo debe ser evaluable.
+- Devuelve el resultado en el campo "objetivoSMARTMejorado".
 
 Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
 {
+  "completo": true,
+  "faltantes": [],
   "tipoObjetivo": "Directo",
-  "confianza": 95,
-  "razon": "Justificación clara de por qué este tipo es el correcto según las reglas de prioridad",
+  "confianza": "ALTA",
+  "razon": "Justificación en máximo 30 palabras de por qué elegiste ese tipo",
+  "señalDetectada": "La frase o palabra clave específica que activó la clasificación",
+  "advertencia": "Solo si hay combinación errónea, explicar impacto. Dejar vacío si no aplica.",
   "sugerencia": "Análisis predictivo y sugerencia retadora basada en historial 2025 y puesto",
   "kpiComplementario": "Un KPI complementario específico para este objetivo",
-  "correctedEnfoque": "Texto de Proyecto/Enfoque corregido (igual si no hay errores). No incluyas punto final.",
-  "correctedQueHaras": "Texto de Acciones corregido. IMPORTANTE 1: Si empieza con un verbo en infinitivo (ej: 'implementar', 'realizar'), cámbialo obligatoriamente a un sustantivo verbal (ej: 'la implementación de', 'la realización de') o gerundio ('implementando') para asegurar coherencia gramatical al unirse con la palabra 'mediante'. IMPORTANTE 2: si el texto repite las mismas palabras del Enfoque, REESCRÍBELO describiendo el CÓMO. No incluyas punto final.",
+  "correctedEnfoque": "Texto de Proyecto/Enfoque corregido. No incluyas punto final.",
+  "correctedQueHaras": "Texto de Acciones corregido. Si empieza con verbo en infinitivo, cámbialo a sustantivo verbal o gerundio para coherencia con 'mediante'. Si repite el Enfoque, reescríbelo describiendo el CÓMO. No incluyas punto final.",
+  "correctedImpacto": "Texto de Impacto corregido ortográficamente. No incluyas punto final.",
+  "objetivoSMARTMejorado": "Versión profesional, ejecutiva y evaluable del objetivo completo (40-80 palabras). DEBE incluir: verbo + indicador + de [línea base] a [meta] + mediante [método] + con el fin de [impacto] + al cierre del año 2026.",
   "smartValidation": {
     "S": { "pass": true, "msg": "Evaluación: acción específica y clara" },
     "M": { "pass": true, "msg": "Evaluación: métricas cuantificables" },
@@ -1544,12 +1754,27 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
       console.error('AI JSON parse error:', e);
     }
 
+    if (aiResult && aiResult.completo === false) {
+      overlay.classList.remove('active');
+      const faltantesStr = (aiResult.faltantes && aiResult.faltantes.length > 0) ? aiResult.faltantes.join(', ') : 'componentes clave';
+      showStepError(`La IA detectó que tu redacción es insuficiente o faltan detalles: ${faltantesStr}. Por favor, mejora tu respuesta.`);
+      return;
+    }
+
     // --- Apply AI result ---
-    const emojiMap = { 'Directo': '📈', 'Inverso': '📉', 'Rango': '📊', 'Discreto': '🎯' };
-    if (aiResult && aiResult.tipoObjetivo) {
-      const emoji = emojiMap[aiResult.tipoObjetivo] || '📈';
-      obj.tipoEval = `${emoji} ${aiResult.tipoObjetivo}`;
-      obj.aiRazon = aiResult.razon || '';
+    const emojiMap = { 'Directo': '📈', 'Inverso': '📉', 'Rangos': '📊', 'Discreto': '🎯', 'Rango': '📊' };
+
+    if (aiResult) {
+      // La IA clasifica automáticamente el tipo
+      const aiTipo = aiResult.tipoObjetivo === 'Rango' ? 'Rangos' : (aiResult.tipoObjetivo || 'Directo');
+      const emoji = emojiMap[aiTipo] || '📈';
+      obj.tipoEval = `${emoji} ${aiTipo}`;
+      obj.tipoEvalManual = aiTipo; // Guardar para que formatObjectiveText use el tipo correcto
+      obj.aiTipoSugerido = aiTipo;
+      obj.aiRazon = aiResult.razon || getClasificacionJustificacion(aiTipo, obj.lineaBase, obj.meta);
+      obj.aiConfianza = aiResult.confianza || 'MEDIA';
+      obj.aiSenalDetectada = aiResult.señalDetectada || aiResult.senalDetectada || '';
+      obj.aiAdvertencia = aiResult.advertencia || '';
       obj.aiSugerencia = aiResult.sugerencia || '';
       obj.aiKpi = aiResult.kpiComplementario || '';
       obj.aiSmart = aiResult.smartValidation || null;
@@ -1561,9 +1786,17 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
         obj.queHaras = aiResult.correctedQueHaras.trim();
       }
     } else {
-      // Fallback to rule-based analysis
-      obj.tipoEval = analysis.evalType;
-      obj.aiRazon = 'Determinado por motor de reglas interno.';
+      // Fallback: usar motor de reglas local si la IA falla
+      const fallbackTipo = getSuggestedEvalType(obj.action, '', obj.lineaBase, obj.meta, obj.enfoque, obj.queHaras, state.area);
+      const cleanTipo = fallbackTipo.replace(/📈|📉|🎯|📊/g, '').trim();
+      const emoji = emojiMap[cleanTipo] || '📈';
+      obj.tipoEval = `${emoji} ${cleanTipo}`;
+      obj.tipoEvalManual = cleanTipo;
+      obj.aiTipoSugerido = cleanTipo;
+      obj.aiRazon = getClasificacionJustificacion(cleanTipo, obj.lineaBase, obj.meta);
+      obj.aiConfianza = 'BAJA';
+      obj.aiSenalDetectada = '';
+      obj.aiAdvertencia = '';
       obj.aiSugerencia = '';
       obj.aiKpi = '';
       obj.aiSmart = null;
@@ -1574,9 +1807,9 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
     // y el motor de texto lo concatena: "Implementar Implementar sistema..." → bug visual.
     if (obj.enfoque && obj.action) {
       const normalize = s => s.toLowerCase()
-        .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u');
+        .replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
       const actionNorm = normalize(obj.action);
-      const enfNorm    = normalize(obj.enfoque.trim());
+      const enfNorm = normalize(obj.enfoque.trim());
       // Si el enfoque empieza exactamente con el verbo elegido, lo quitamos
       if (enfNorm.startsWith(actionNorm)) {
         obj.enfoque = obj.enfoque.trim().substring(obj.action.length).trim();
@@ -1591,7 +1824,14 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
         }
       }
     }
-    obj.finalSmart = formatObjectiveText(obj);
+    // Usar el objetivo reescrito por la IA si está disponible; sino, usar el constructor local
+    if (aiResult && aiResult.objetivoSMARTMejorado && aiResult.objetivoSMARTMejorado.trim().length > 20) {
+      obj.finalSmart = aiResult.objetivoSMARTMejorado.trim();
+      // Asegurar que termine con punto
+      if (!obj.finalSmart.endsWith('.')) obj.finalSmart += '.';
+    } else {
+      obj.finalSmart = formatObjectiveText(obj);
+    }
     obj.status = 'completed';
     saveState(true);
 
@@ -1625,7 +1865,7 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
       if (!el) return;
       let pass = fallbackPass;
       let msg = pass ? fallbackMsgPass : fallbackMsgFail;
-      
+
       if (!fallbackPass) {
         // Regla de Negocio Estricta: Si JS local detecta falla (links, spam), se bloquea sin importar lo que diga la IA.
         pass = false;
@@ -1635,7 +1875,7 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
         pass = obj.aiSmart[letter].pass;
         msg = obj.aiSmart[letter].msg;
       }
-      
+
       if (pass) {
         el.innerHTML = `<span style="color:var(--success)">✓ ${name}:</span> <span style="font-weight:500; font-size:0.85rem; display:block; margin-top:2px; color:var(--text-main);">${msg}</span>`;
       } else {
@@ -1651,7 +1891,7 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
       if (words.length < 3) return true; // Muy corto
       return false;
     };
-    
+
     const isValidNumber = (text) => {
       if (!text) return false;
       const str = String(text).toLowerCase().trim();
@@ -1661,92 +1901,101 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
       return /\d/.test(str);
     };
 
-    renderSmart('smart-specific-status', 'S', 'Específico', 
-      !hasLinksOrGibberish(obj.queHaras) && obj.queHaras.trim().length >= 15 && !hasLinksOrGibberish(obj.enfoque), 
-      'Acción clara, estructurada y detallada.', 
+    renderSmart('smart-specific-status', 'S', 'Específico',
+      !hasLinksOrGibberish(obj.queHaras) && obj.queHaras.trim().length >= 15 && !hasLinksOrGibberish(obj.enfoque),
+      'Acción clara, estructurada y detallada.',
       'El texto ingresado es inválido, contiene enlaces o carece de sentido profesional.'
     );
 
-    renderSmart('smart-measurable-status', 'M', 'Medible', 
-      isValidNumber(obj.lineaBase) && isValidNumber(obj.meta), 
-      'Línea base y meta numéricas correctamente definidas.', 
+    renderSmart('smart-measurable-status', 'M', 'Medible',
+      isValidNumber(obj.lineaBase) && isValidNumber(obj.meta),
+      'Línea base y meta numéricas correctamente definidas.',
       'Los indicadores deben contener valores numéricos y no enlaces ni texto sin sentido.'
     );
 
-    renderSmart('smart-achievable-status', 'A', 'Alcanzable', 
-      (!hasLinksOrGibberish(obj.queHaras) && (analysis.level === 'baja' || analysis.level === 'media')), 
-      'Viabilidad operativa consistente con los datos.', 
+    renderSmart('smart-achievable-status', 'A', 'Alcanzable',
+      (!hasLinksOrGibberish(obj.queHaras) && (analysis.level === 'baja' || analysis.level === 'media')),
+      'Viabilidad operativa consistente con los datos.',
       'Datos incongruentes, irreales o meta excesivamente fuera de rango.'
     );
 
-    renderSmart('smart-relevant-status', 'R', 'Relevante', 
-      obj.pilares && obj.pilares.length > 0 && !hasLinksOrGibberish(obj.enfoque), 
-      'Alineado estratégicamente a un pilar corporativo.', 
+    renderSmart('smart-relevant-status', 'R', 'Relevante',
+      obj.pilares && obj.pilares.length > 0 && !hasLinksOrGibberish(obj.enfoque),
+      'Alineado estratégicamente a un pilar corporativo.',
       'Objetivo no estructurado correctamente o sin pilar válido.'
     );
 
-    renderSmart('smart-time-status', 'T', 'Temporal', 
-      true, 
-      'Enfoque anual definido para 2026.', 
+    renderSmart('smart-time-status', 'T', 'Temporal',
+      true,
+      'Enfoque anual definido para 2026.',
       'Falta establecer el año límite.'
     );
 
     // --- Tipo de objetivo (determinado por IA / Reglas) con traza al input del usuario ---
-    const evalSelected = obj.tipoEval || '🎯 Discreto';
-    const evalKey = evalSelected.replace(/📈|📉|🎯|📊/g, '').trim();
-    const evalColorMap = { 'Directo': '#2563eb', 'Inverso': '#059669', 'Discreto': '#d97706', 'Rango': '#7c3aed', 'Rangos': '#7c3aed' };
-    const evalBgMap   = { 'Directo': '#eff6ff', 'Inverso': '#f0fdf4', 'Discreto': '#fffbeb', 'Rango': '#faf5ff', 'Rangos': '#faf5ff' };
-    const evalDescMap = {
-      'Directo':  'El indicador mejora mientras más alto sea el valor alcanzado.',
-      'Inverso':  'El indicador mejora mientras más bajo sea el valor resultante.',
-      'Discreto': 'El cumplimiento es binario: el hito se logra completamente o no.',
-      'Rango':    'El resultado es válido si se mantiene dentro de un intervalo definido.',
-      'Rangos':   'El resultado es válido si se mantiene dentro de un intervalo definido.'
-    };
-    const evalColor = evalColorMap[evalKey] || '#0f172a';
-    const evalBg    = evalBgMap[evalKey] || '#f8fafc';
-    const evalDesc  = evalDescMap[evalKey] || '';
+    const evalSuggested = obj.aiTipoSugerido || obj.tipoEvalManual || 'Directo';
+    const evalKey = evalSuggested.replace(/📈|📉|🎯|📊/g, '').trim();
 
     // Build input-trace: show the user's actual inputs that led to this type
     const traceItems = [];
     if (obj.action) traceItems.push(`<span style="background:#f1f5f9; border-radius:4px; padding:1px 6px; font-size:0.75rem;">Verbo: <strong>${obj.action}</strong></span>`);
-    if (obj.enfoque) traceItems.push(`<span style="background:#f1f5f9; border-radius:4px; padding:1px 6px; font-size:0.75rem;">Proyecto: <strong>${obj.enfoque.length > 40 ? obj.enfoque.substring(0,40)+'…' : obj.enfoque}</strong></span>`);
+    if (obj.enfoque) traceItems.push(`<span style="background:#f1f5f9; border-radius:4px; padding:1px 6px; font-size:0.75rem;">Proyecto: <strong>${obj.enfoque.length > 40 ? obj.enfoque.substring(0, 40) + '…' : obj.enfoque}</strong></span>`);
     if (obj.lineaBase) traceItems.push(`<span style="background:#f1f5f9; border-radius:4px; padding:1px 6px; font-size:0.75rem;">Línea base: <strong>${obj.lineaBase}</strong></span>`);
     if (obj.meta) traceItems.push(`<span style="background:#f1f5f9; border-radius:4px; padding:1px 6px; font-size:0.75rem;">Meta: <strong>${obj.meta}</strong></span>`);
     const traceHtml = traceItems.length > 0 ? `
       <div style="margin-top:0.6rem; display:flex; flex-wrap:wrap; gap:0.35rem; align-items:center;">
-        <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Determinado desde tu input →</span>
         ${traceItems.join('')}
       </div>` : '';
 
     const suggestionEl = document.getElementById('smart-eval-suggestion');
     if (suggestionEl) {
-      const evalCardsHtml = [
+      const allCards = [
         { key: 'Directo', emoji: '📈', color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', label: 'Directo', sub: 'mayor es mejor' },
         { key: 'Inverso', emoji: '📉', color: '#059669', bg: '#f0fdf4', border: '#86efac', label: 'Inverso', sub: 'menor es mejor' },
         { key: 'Discreto', emoji: '🎯', color: '#d97706', bg: '#fffbeb', border: '#fcd34d', label: 'Discreto', sub: 'cumple o no cumple' },
-        { key: 'Rango', emoji: '📊', color: '#7c3aed', bg: '#faf5ff', border: '#d8b4fe', label: 'Rangos', sub: 'mantener en intervalo' }
-      ].map(t => {
-        const isInferred = t.key === evalKey || (evalKey === 'Rangos' && t.key === 'Rango') || (evalKey === 'Rango' && t.key === 'Rango');
-        return `<div data-eval-card="${t.key}" style="
-          flex:1; min-width:0; padding:0.6rem 0.5rem; border-radius:10px;
-          border:2px solid ${isInferred ? t.color : t.border};
-          background:${isInferred ? t.bg : '#fff'};
-          text-align:center; transition:all 0.25s;
-          box-shadow: ${isInferred ? `0 0 0 3px ${t.color}22` : 'none'};
+        { key: 'Rangos', emoji: '📊', color: '#7c3aed', bg: '#faf5ff', border: '#d8b4fe', label: 'Rangos', sub: 'mantener en intervalo' }
+      ];
+
+      const t = allCards.find(c => c.key === evalKey) || allCards[0];
+
+      // Confidence badge colors
+      const confColors = { 'ALTA': '#10b981', 'MEDIA': '#f59e0b', 'BAJA': '#ef4444' };
+      const confColor = confColors[obj.aiConfianza] || '#94a3b8';
+
+      const evalCardsHtml = `<div data-eval-card="${t.key}" style="
+          width: 180px; padding:1rem; border-radius:12px;
+          border:2px solid ${t.color};
+          background:${t.bg};
+          text-align:center; margin: 0 auto;
+          box-shadow: 0 4px 12px ${t.color}22;
         ">
-          <div style="font-size:1.3rem;">${t.emoji}</div>
-          <div class="eval-card-label" style="font-size:0.7rem; font-weight:${isInferred ? '800' : '600'}; color:${isInferred ? t.color : '#64748b'}; margin-top:2px;">${t.label}</div>
-          <div style="font-size:0.6rem; color:${isInferred ? t.color : '#94a3b8'};">${t.sub}</div>
-          <div class="eval-active-badge" style="display:${isInferred ? 'block' : 'none'}; font-size:0.6rem; font-weight:800; color:${t.color}; margin-top:4px; background:${t.bg}; border-radius:4px; padding:1px 4px;">← Sugerido</div>
+          <div style="font-size:2rem; margin-bottom: 0.5rem;">${t.emoji}</div>
+          <div class="eval-card-label" style="font-size:1rem; font-weight:800; color:${t.color}; margin-top:2px;">${t.label}</div>
+          <div style="font-size:0.75rem; color:${t.color}; margin-bottom: 0.5rem;">${t.sub}</div>
+          <div style="display:flex; gap:0.35rem; justify-content:center; flex-wrap:wrap;">
+            <div class="eval-active-badge" style="display:inline-block; font-size:0.65rem; font-weight:800; color:#fff; background:${t.color}; border-radius:6px; padding:2px 8px;">Sugerido por el Sistema</div>
+          </div>
         </div>`;
-      }).join('');
+
+      let justificacionHtml = `Este objetivo fue clasificado como <strong>${t.label}</strong> porque ${obj.aiRazon}`;
+
+      // Signal detected
+      const senalHtml = obj.aiSenalDetectada ? `
+        <div style="margin-top:0.75rem; padding:0.5rem 0.75rem; background:#f1f5f9; border-radius:8px; font-size:0.8rem; color:#475569;">
+          <span style="font-weight:700; color:#1e3a5f;">🔍 Señal detectada:</span> ${obj.aiSenalDetectada}
+        </div>` : '';
+
+      // Warning if any
+      const advertenciaHtml = obj.aiAdvertencia ? `
+        <div style="margin-top:0.75rem; padding:0.6rem 0.75rem; background:#fef3c7; border:1px solid #fcd34d; border-radius:8px; font-size:0.8rem; color:#92400e; font-weight:600;">
+          ⚠️ ${obj.aiAdvertencia}
+        </div>` : '';
 
       suggestionEl.innerHTML = `
-        <div style="display:flex; gap:0.4rem; margin-bottom:1rem;">${evalCardsHtml}</div>
-        <div style="background:${evalBg}; border:2px solid ${evalColor}22; border-radius:12px; padding:1rem; margin-bottom:0.75rem;">
-          <div style="font-size:0.8rem; color:#374151; font-weight:600; margin-bottom:0.25rem;">${evalDesc}</div>
-          <div style="font-size:0.8rem; color:#64748b; line-height:1.5;">${obj.aiRazon || 'Determinado por motor de reglas interno.'}</div>
+        <div style="display:flex; justify-content:center; margin-bottom:1.5rem;">${evalCardsHtml}</div>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:1.25rem; margin-bottom:0.75rem;">
+          <div style="font-size:0.95rem; color:#1e293b; line-height:1.5; font-weight: 500;">${justificacionHtml}</div>
+          ${senalHtml}
+          ${advertenciaHtml}
           ${traceHtml}
         </div>
       `;
@@ -1755,7 +2004,7 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
     // --- Nivel de Reto (Eficacia) ---
     const efficacyEl = document.getElementById('panel-efficacy');
     if (efficacyEl) {
-      const bars = [1,2,3,4,5].map(i => {
+      const bars = [1, 2, 3, 4, 5].map(i => {
         const filled = i <= efficacy.score;
         return `<div style="flex:1; height:10px; border-radius:4px; background:${filled ? efficacy.color : '#e2e8f0'}; transition:all 0.4s;"></div>`;
       }).join('');
@@ -1830,12 +2079,12 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
 
   function continueStackFlow() {
     let nextPending = state.objectives.findIndex(o => o.status === 'pending');
-    
+
     if (nextPending !== -1) {
       state.currentObjIndex = nextPending;
       state.wizardStep = 1;
       state.objectives[nextPending].status = 'progress';
-      
+
       const refCard = document.getElementById('wizard-reference-card');
       if (state.objectives[nextPending].ref2025) {
         document.getElementById('wizard-reference-text').textContent = state.objectives[nextPending].ref2025;
@@ -1862,11 +2111,11 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
     formData.append('entry.144480401', state.collabInfo?.puesto || '-');          // Puesto
     formData.append('entry.779363949', state.collabInfo?.area || state.area || '-'); // Area
     formData.append('entry.86969653', (obj.pilares && obj.pilares.length > 0) ? obj.pilares[0] : '-'); // Pilar
-    
+
     // Tipo Eval
     const tipo = document.getElementById('select-tipo-eval') ? document.getElementById('select-tipo-eval').value : (obj.tipoEval || '-');
     formData.append('entry.1662612282', tipo);
-    
+
     // Objetivo
     formData.append('entry.2087132226', finalSmart);
 
