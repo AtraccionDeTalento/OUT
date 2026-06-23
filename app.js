@@ -6,13 +6,22 @@ const bootstrapApp = () => {
   // Si la key principal agota su cuota, se usa la de respaldo automáticamente.
   const GEMINI_API_KEYS = [
     'AQ.Ab8RN6IE6QHUThKGVePhMxjuimiqqJr0gYHjYsC2Qj82zcsH6Q', // Key principal
-    'AIzaSyBmrQXJ7OFRMEsPKqTPTmEgalEap64e2uQ'                 // Key de respaldo
+    'AQ.Ab8RN6KED4qh_e2JJ209w8awCOgI4b8l02MxfChXKdwK1ffxdw',
+    'AQ.Ab8RN6K7mBcgpcqBu_C0Do4qOoACbuwuIQ0vch5h95wCgXL6_A',
+    'AQ.Ab8RN6IR1SRg_vAK-40XxjCyYWP0cUi_EF9jhSuib1_VjXk2HQ',
+    'AQ.Ab8RN6Lwpww1CFVd9zGtzVvcQPQ_FmrquNvJDmpWmicwDl6YMQ',
+    'AQ.Ab8RN6L7xL8CBLEnr07oxeRE8ZRMmtA6_iooLyev_eOMJ7RqNg',
+     'AIzaSyBmrQXJ7OFRMEsPKqTPTmEgalEap64e2uQ',// Key de respaldo
   ];
   const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
   const SAVE_WEBHOOK_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfhCeBSfkyAniPfjm8eTn9bUKKot83nP5dkkiu0YXKijG_yqw/formResponse';
+  const SAVE_WEBHOOK_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfhCeBSfkyAniPfjm8eTn9bUKKot83nP5dkkiu0YXKijG_yqw/formResponse';
 
-  // --- AI SUGGESTION ENGINE con rotación de keys ---
+  // --- AI SUGGESTION ENGINE con rotación de keys y fallback a Groq ---
   async function callGeminiAI(prompt) {
+    let lastError = null;
+    
+    // 1. Intentar con todas las llaves de Gemini
     for (let i = 0; i < GEMINI_API_KEYS.length; i++) {
       const key = GEMINI_API_KEYS[i];
       try {
@@ -24,21 +33,52 @@ const bootstrapApp = () => {
             generationConfig: { temperature: 0.7, maxOutputTokens: 1024 }
           })
         });
-        // Si es error de cuota (429) o auth (403), intenta con la siguiente key
-        if (res.status === 429 || res.status === 403) {
-          console.warn(`Key ${i + 1} agotada o inválida (${res.status}), intentando key ${i + 2}...`);
+        
+        if (!res.ok) {
+          console.warn(`Gemini Key ${i + 1} falló (${res.status}), intentando siguiente...`);
+          lastError = new Error(`API ${res.status}`);
           continue;
         }
-        if (!res.ok) throw new Error(`API ${res.status}`);
+        
         const data = await res.json();
         const result = data.candidates?.[0]?.content?.parts?.[0]?.text || null;
         if (result) return result;
       } catch (e) {
-        console.warn(`Error con key ${i + 1}:`, e.message);
-        // Si quedan más keys, continúa; si era la última, retorna null
-        if (i === GEMINI_API_KEYS.length - 1) return null;
+        console.warn(`Error con Gemini key ${i + 1}:`, e.message);
+        lastError = e;
       }
     }
+    
+    // 2. Si fallaron todas las Gemini, hacer Fallback a Groq (Llama 3)
+    console.warn("Todas las llaves de Gemini fallaron. Activando motor de rescate Groq...");
+    try {
+      const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${GROQ_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'llama3-70b-8192', // Modelo de alto rendimiento
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.7
+        })
+      });
+
+      if (!groqRes.ok) {
+        throw new Error(`Groq API ${groqRes.status}`);
+      }
+      
+      const groqData = await groqRes.json();
+      const groqResult = groqData.choices?.[0]?.message?.content || null;
+      if (groqResult) return groqResult;
+    } catch (groqError) {
+      console.error("Groq fallback también falló:", groqError.message);
+      // Si ambos motores fallaron, lanza el error para que la UI lo atrape
+      if (lastError) throw lastError;
+      throw groqError;
+    }
+
     return null;
   }
 
@@ -109,6 +149,7 @@ const bootstrapApp = () => {
 
   const screens = {
     hero: document.getElementById('screen-hero'),
+    intro: document.getElementById('screen-intro'),
     dashboard: document.getElementById('screen-dashboard'),
     wizard: document.getElementById('screen-wizard'),
     result: document.getElementById('screen-result')
@@ -286,11 +327,15 @@ const bootstrapApp = () => {
         state.currentObjIndex = 0;
         state.wizardStep = 1;
         saveState(true);
-        showScreen('dashboard');
-        renderDashboard();
+        showScreen('intro');
       }, 1800);
 
     }, 1800);
+  });
+
+  document.getElementById('btn-continue-intro').addEventListener('click', () => {
+    showScreen('dashboard');
+    renderDashboard();
   });
 
   document.getElementById('btn-back-dash').addEventListener('click', () => {
@@ -327,60 +372,7 @@ const bootstrapApp = () => {
     }
   });
 
-  const btnEvalIA = document.getElementById('btn-eval-ia');
-  if (btnEvalIA) {
-    btnEvalIA.addEventListener('click', async () => {
-      let objsText = state.objectives.filter(o => o.finalSmart).map((o, i) => `${i + 1}. ${o.finalSmart}`).join('\n');
-      let promptText = `Actúa como experto en desempeño organizacional y metodología SMART.
-Voy a compartir mis 5 objetivos para evaluación anual (junio – diciembre).
-Evalúa cada uno según estos criterios:
-- ¿Es específico?
-- ¿Es medible?
-- ¿Es alcanzable según mi rol?
-- ¿Es relevante frente a las prioridades del área?
-- ¿Tiene un plazo definido?
-Si hay metas porcentuales, ¿se indica respecto a qué se comparan?
-Si son metas absolutas, ¿son claras y medibles?
-Para cada objetivo:
-- Indica si cumple o no con cada criterio
-- Explica por qué
-- Sugiere una versión mejorada si aplica
-Al final, dime si los 5 están equilibrados o si hay alguno redundante.
 
-MIS OBJETIVOS GENERADOS SON:
-${objsText}`;
-
-      const modal = document.getElementById('ai-eval-modal');
-      const content = document.getElementById('ai-eval-content');
-      if (modal && content) {
-        modal.classList.remove('hidden');
-        content.innerHTML = `<div style="text-align:center; padding: 3rem 0;">
-          <span style="display:inline-block; width:40px; height:40px; border:4px solid #7c3aed; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite;"></span>
-          <p style="margin-top:1rem; font-weight:700; color:#7c3aed;">La IA está analizando y puliendo tus 5 objetivos...</p>
-        </div>`;
-
-        try {
-          const res = await callGeminiAI(promptText);
-          if (res) {
-            let formattedHtml = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            formattedHtml = formattedHtml.replace(/\n/g, '<br>');
-            content.innerHTML = formattedHtml;
-          } else {
-            content.innerHTML = `<p style="color:var(--danger); font-weight:bold;">Hubo un error al procesar la solicitud con la IA. Por favor, intenta de nuevo.</p>`;
-          }
-        } catch (e) {
-          content.innerHTML = `<p style="color:var(--danger); font-weight:bold;">Error de conexión: ${e.message}</p>`;
-        }
-      }
-    });
-
-    document.getElementById('btn-close-ai-eval')?.addEventListener('click', () => {
-      document.getElementById('ai-eval-modal')?.classList.add('hidden');
-    });
-    document.getElementById('btn-ai-eval-done')?.addEventListener('click', () => {
-      document.getElementById('ai-eval-modal')?.classList.add('hidden');
-    });
-  }
 
   function renderDashboard() {
     const list = document.getElementById('objectives-list');
@@ -472,22 +464,15 @@ ${objsText}`;
     }
 
     const btnCont = document.getElementById('btn-continue-stack');
-    const btnEvalIA = document.getElementById('btn-eval-ia');
     if (!allCompleted) {
       btnCont.style.display = 'inline-block';
-      if (btnEvalIA) btnEvalIA.style.display = 'none';
       let nextPending = state.objectives.findIndex(o => o.status === 'pending' || o.status === 'progress');
       btnCont.textContent = `Continuar con Objetivo ${nextPending + 1} →`;
     } else {
       btnCont.style.display = 'none';
-      if (btnEvalIA) {
-        btnEvalIA.style.display = 'inline-flex';
-        // Auto-ejecutar la evaluación IA al completar todos los objetivos
-        if (!state.aiEvalDone) {
-          state.aiEvalDone = true;
-          saveState(false);
-          setTimeout(() => btnEvalIA.click(), 500);
-        }
+      const btnExcel = document.getElementById('btn-download-excel');
+      if (btnExcel) {
+        btnExcel.style.display = 'inline-flex';
       }
     }
   }
@@ -2124,6 +2109,62 @@ Responde SOLAMENTE con un JSON válido (sin markdown, sin texto fuera del JSON):
       mode: 'no-cors',
       body: formData
     }).catch(err => console.error("Error al guardar en Form:", err));
+  }
+
+  const btnDownloadExcel = document.getElementById('btn-download-excel');
+  if (btnDownloadExcel) {
+    btnDownloadExcel.addEventListener('click', () => {
+      if (typeof XLSX === 'undefined') {
+        alert("La librería para exportar Excel no se ha cargado correctamente.");
+        return;
+      }
+      
+      const wb = XLSX.utils.book_new();
+      
+      const data = [
+        ['N°', 'DNI', 'Colaborador', 'Puesto', 'Área', 'Objetivo SMART Generado', 'Tipo de Objetivo (Clasificación)', 'Día y Fecha de Realización']
+      ];
+      
+      const currentDateTime = new Date().toLocaleString('es-PE', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: true
+      });
+      
+      state.objectives.forEach((obj, i) => {
+        if (obj.finalSmart) {
+          data.push([
+            i + 1,
+            state.collabInfo?.dni || state.userId || '-',
+            state.collabInfo?.nombre || '-',
+            state.collabInfo?.puesto || '-',
+            state.collabInfo?.area || state.area || 'General',
+            obj.finalSmart,
+            obj.tipoEvalManual || obj.tipoEval || 'No clasificado',
+            currentDateTime
+          ]);
+        }
+      });
+      
+      const ws = XLSX.utils.aoa_to_sheet(data);
+      
+      // Styling columns width
+      ws['!cols'] = [
+        {wch: 5},   // N°
+        {wch: 12},  // DNI
+        {wch: 30},  // Colaborador
+        {wch: 30},  // Puesto
+        {wch: 25},  // Área
+        {wch: 90},  // Objetivo SMART Generado
+        {wch: 25},  // Tipo
+        {wch: 25}   // Fecha
+      ];
+      
+      XLSX.utils.book_append_sheet(wb, ws, "Objetivos 2026");
+      
+      const fileName = `Objetivos_SMART_2026_${state.collabInfo?.nombre?.replace(/\s+/g, '_') || 'USIL'}.xlsx`;
+      XLSX.writeFile(wb, fileName);
+    });
   }
 
   init();
