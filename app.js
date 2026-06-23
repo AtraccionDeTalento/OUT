@@ -5,16 +5,14 @@ const bootstrapApp = () => {
   // --- API KEYS con fallback automático ---
   // Si la key principal agota su cuota, se usa la de respaldo automáticamente.
   const GEMINI_API_KEYS = [
-    'AQ.Ab8RN6IE6QHUThKGVePhMxjuimiqqJr0gYHjYsC2Qj82zcsH6Q', // Key principal
     'AQ.Ab8RN6KED4qh_e2JJ209w8awCOgI4b8l02MxfChXKdwK1ffxdw',
     'AQ.Ab8RN6K7mBcgpcqBu_C0Do4qOoACbuwuIQ0vch5h95wCgXL6_A',
     'AQ.Ab8RN6IR1SRg_vAK-40XxjCyYWP0cUi_EF9jhSuib1_VjXk2HQ',
     'AQ.Ab8RN6Lwpww1CFVd9zGtzVvcQPQ_FmrquNvJDmpWmicwDl6YMQ',
-    'AQ.Ab8RN6L7xL8CBLEnr07oxeRE8ZRMmtA6_iooLyev_eOMJ7RqNg',
-     'AIzaSyBmrQXJ7OFRMEsPKqTPTmEgalEap64e2uQ',// Key de respaldo
+    'AQ.Ab8RN6L7xL8CBLEnr07oxeRE8ZRMmtA6_iooLyev_eOMJ7RqNg'
   ];
+  const GROQ_API_KEY = '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';
   const GEMINI_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
-  const SAVE_WEBHOOK_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfhCeBSfkyAniPfjm8eTn9bUKKot83nP5dkkiu0YXKijG_yqw/formResponse';
   const SAVE_WEBHOOK_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfhCeBSfkyAniPfjm8eTn9bUKKot83nP5dkkiu0YXKijG_yqw/formResponse';
 
   // --- AI SUGGESTION ENGINE con rotación de keys y fallback a Groq ---
